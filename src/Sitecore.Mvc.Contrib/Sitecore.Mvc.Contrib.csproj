@@ -31,12 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Kernel, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc, Version=1.0.4549.26863, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -51,7 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\IRegisterRoutes.cs" />
     <Compile Include="Controllers\StandardController.cs" />
+    <Compile Include="Controllers\ViewInjectingController.cs" />
+    <Compile Include="Extensions\ControllerRouteExtensions.cs" />
     <Compile Include="Helpers\ISitecoreViewHelper.cs" />
     <Compile Include="Helpers\SitecoreFieldHelper.cs" />
     <Compile Include="Helpers\SitecoreViewHelper.cs" />
