@@ -8,7 +8,7 @@ using Sitecore.Mvc.Presentation;
 
 namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
 {
-    public class LegacyInjectFilter : Sitecore.Mvc.Pipelines.MvcEvents.ResultExecuting.ResultExecutingProcessor
+    public class InjectViewInPlaceholderFilter : Sitecore.Mvc.Pipelines.MvcEvents.ResultExecuting.ResultExecutingProcessor
     {
         /// <summary>
         /// Filter for injecting the ViewResult of a controller into a Sitecore placeholder.
