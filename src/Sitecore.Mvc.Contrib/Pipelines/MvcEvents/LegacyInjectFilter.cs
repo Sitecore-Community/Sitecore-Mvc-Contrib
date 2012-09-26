@@ -29,7 +29,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
         {
             var filterContext = args.Context;
             var placeholder = filterContext.RouteData.Values["scPlaceholder"] as string;
-            if (!string.IsNullOrEmpty(placeholder) && Sitecore.Context.Item != null)
+            if (!string.IsNullOrEmpty(placeholder) && PageContext.Current.Item != null)
             {
                 var res = ((ViewResult)filterContext.Result);
                 var razorView = new RazorView(filterContext.Controller.ControllerContext, res.ViewName, "", false, null);
