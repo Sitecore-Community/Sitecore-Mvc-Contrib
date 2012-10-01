@@ -15,7 +15,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
         /// 
         /// Use this configuration snippet to enable:
         /// <mvc.resultExecuting>
-        ///   <processor type="Sitecore.Mvc.Contrib.Pipelines.MvcEvents.LegacyInjectFilter, Sitecore.Mvc.Contrib"/>
+        ///   <processor type="Sitecore.Mvc.Contrib.Pipelines.MvcEvents.InjectViewInPlaceholderFilter, Sitecore.Mvc.Contrib"/>
         /// </mvc.resultExecuting>
         /// 
         /// Will react to all controllers with the scItemPath and scPlaceholder set in the route data. E.g.:
@@ -28,13 +28,22 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
         public override void Process(Sitecore.Mvc.Pipelines.MvcEvents.ResultExecuting.ResultExecutingArgs args)
         {
             var filterContext = args.Context;
-            var placeholder = filterContext.RouteData.Values["scPlaceholder"] as string;
-            if (!string.IsNullOrEmpty(placeholder) && PageContext.Current.Item != null)
+            var viewResult = filterContext.Result as ViewResult;
+            if (viewResult != null)
             {
-                var res = ((ViewResult)filterContext.Result);
-                var razorView = new RazorView(filterContext.Controller.ControllerContext, res.ViewName, "", false, null);
-                res.View = InjectViewInPlace(placeholder, filterContext.Controller.ControllerContext, razorView,
-                                             res.ViewData, res.TempData);
+                var placeholder = filterContext.RouteData.Values["scPlaceholder"] as string;
+                if (!string.IsNullOrEmpty(placeholder) && PageContext.Current.Item != null)
+                {
+                    var viewPath = (viewResult.ViewName != "")
+                                       ? viewResult.ViewName
+                                       : filterContext.Controller.ControllerContext.RouteData.GetRequiredString("action");
+                    var viewEngineResult = viewResult.ViewEngineCollection.FindView(
+                        filterContext.Controller.ControllerContext, viewPath, viewResult.MasterName);
+                    viewResult.View = InjectViewInPlace(placeholder, filterContext.Controller.ControllerContext,
+                                                 viewEngineResult.View,
+                                                 viewResult.ViewData, viewResult.TempData);
+
+                }
             }
         }
 
