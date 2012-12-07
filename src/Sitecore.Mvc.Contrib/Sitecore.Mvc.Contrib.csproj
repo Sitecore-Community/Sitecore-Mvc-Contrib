@@ -56,11 +56,16 @@
     <Compile Include="Helpers\ISitecoreViewHelper.cs" />
     <Compile Include="Helpers\SitecoreFieldHelper.cs" />
     <Compile Include="Helpers\SitecoreViewHelper.cs" />
+    <Compile Include="Html\EditMode.cs" />
+    <Compile Include="Html\ScLabel.cs" />
     <Compile Include="Models\ItemViewModel.cs" />
     <Compile Include="Pipelines\CheckForControllerModel.cs" />
     <Compile Include="Pipelines\MvcEvents\InjectViewInPlaceholderFilter.cs" />
     <Compile Include="Pipelines\SetModelFromController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\DictionaryResourceSet.cs" />
+    <Compile Include="Resources\ItemResourceSet.cs" />
+    <Compile Include="Resources\SitecoreResourceManager.cs" />
     <Compile Include="Views\WebViewPage.cs" />
   </ItemGroup>
   <ItemGroup />
