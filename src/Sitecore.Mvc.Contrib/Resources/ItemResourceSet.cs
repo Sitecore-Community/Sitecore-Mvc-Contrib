@@ -37,8 +37,8 @@ namespace Sitecore.Mvc.Contrib.Resources
             FieldRenderer render = new FieldRenderer();
             render.Item = item;
             render.FieldName = field.Name;
-
-            return EditMode.UseEditMode ? render.Render() : field.Value;
+            render.DisableWebEditing = !EditMode.UseEditMode;
+            return render.Render();
         }
 
 
