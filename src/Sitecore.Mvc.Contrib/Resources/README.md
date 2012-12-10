@@ -1,4 +1,4 @@
-h2. Resource Manager
+## Resource Manager
 
 To use the Resource Manager with MVC you need to wrap it in another static class:
 
@@ -33,7 +33,7 @@ You can make resource members editable by using the HTML extension Sitecore.Mvc.
 
 The Model:
 
-<pre>
+
     public class CommentItem
     {
         [SitecoreField]
@@ -43,10 +43,10 @@ The Model:
 
         
     }
-</pre>
+
 
 The view:
 
-<pre>
+
 @Html.ScLabelFor(x=>x.Content)
-</pre>
+
