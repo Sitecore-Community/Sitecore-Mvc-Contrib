@@ -40,13 +40,12 @@ The Model:
         [Display(ResourceType = typeof(ErrorItemResources), Name = "ContentLabel")]
         [Required(ErrorMessageResourceName = "RequiredComment", ErrorMessageResourceType = typeof(ErrorItemResources))]
         public virtual string Content { get; set; }
-
-        
+ 
     }
 
 
 The view:
 
 
-@Html.ScLabelFor(x=>x.Content)
+    @Html.ScLabelFor(x=>x.Content)
 
