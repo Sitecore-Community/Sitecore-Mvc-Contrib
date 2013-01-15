@@ -1,1 +1,0 @@
-Place Sitecore.Kernel.dll + Sitecore.Mvc.dll in here !

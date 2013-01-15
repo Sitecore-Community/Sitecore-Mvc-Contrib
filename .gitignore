@@ -26,5 +26,10 @@ _ReSharper*/
 TestResults
 
 #Project specific ignores
-lib/Sitecore.Kernel.dll
-lib/Sitecore.Mvc.dll
+lib/Sitecore.*.dll
+
+/packages
+
+# Build ignores
+/msbuild.log
+/artifacts

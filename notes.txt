@@ -1,0 +1,22 @@
+Criteria for an snippet/component be published:
+
+-	It is relevant.
+-	It has been tested on a clean version of Sitecore MVC (latest)
+-	Code is cleaned up. (Move configuration settings into a dedicated named config include files?)
+-	Documentation (Wiki on github?)
+o	What is the intended purpose of the snippet/component
+o	Steps to get it running
+o	Hints/Faq/Troubleshooting/Known issues
+o	Versions tested it has been tested on
+
+Kevin: I would like you to drive this process. I could move you to the owners group on Sitecore’s GitHub if that would make things easier.
+
+Timeline: Let’s drip feed this over the next 4-5 weeks.
+
+from: Wed 09/01/2013 18:19
+
+Section for Credits / humans.txt
+
+
+
+- Install Mighty Moose continuous test runner from http://continuoustests.com

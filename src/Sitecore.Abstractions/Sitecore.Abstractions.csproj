@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5791FCD4-6691-4EA6-8E02-000AF1E707A4}</ProjectGuid>
+    <ProjectGuid>{8DA484D1-06D3-4749-8275-C9B3346C2584}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.Mvc.Contrib</RootNamespace>
-    <AssemblyName>Sitecore.Mvc.Contrib</AssemblyName>
+    <RootNamespace>Sitecore</RootNamespace>
+    <AssemblyName>Sitecore.Abstractions</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,6 +35,9 @@
     <Reference Include="Sitecore.Kernel">
       <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Logging">
+      <HintPath>..\..\lib\Sitecore.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Mvc">
       <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
     </Reference>
@@ -42,7 +45,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,15 +58,13 @@
     <Compile Include="..\Common\CommonVersionInfo.cs">
       <Link>Properties\CommonVersionInfo.cs</Link>
     </Compile>
-    <Compile Include="Pipelines\MvcEvents\InjectViewInPlaceholderFilter.cs" />
+    <Compile Include="Diagnostics\ILog.cs" />
+    <Compile Include="Diagnostics\LogWrapper.cs" />
+    <Compile Include="Mvc\Presentation\IPageContext.cs" />
+    <Compile Include="Mvc\Presentation\PageContextWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
-      <Project>{8DA484D1-06D3-4749-8275-C9B3346C2584}</Project>
-      <Name>Sitecore.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
