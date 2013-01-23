@@ -3,7 +3,7 @@
   <metadata>
     <id>Sitecore.Mvc.Contrib</id>
     <version>0.0.0</version>
-    <authors>Kern Herskind, Kevin Obee</authors>
+    <authors>Kern Herskind, Kevin Obee, Kevin Buckley</authors>
     <owners>Sitecore</owners>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
     <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
@@ -14,12 +14,17 @@
     <copyright>Copyright (C) by Sitecore A/S</copyright>
     <tags>Sitecore CMS MVC Contrib</tags>
     <language>en-GB</language>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Mvc" version="3.0.20105.1" />
+    </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Release\Build\Sitecore.Abstractions.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Release\Build\Sitecore.Abstractions.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Release\Build\Sitecore.Mvc.Contrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Release\Build\Sitecore.Mvc.Contrib.pdb" target="lib\net40" />
-    <!--<file src="..\..\src\Bottles\**\*.cs" target="src" />-->
+    <file src="..\..\artifacts\Build\Sitecore.Abstractions.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Abstractions.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.pdb" target="lib\net40" />
+
+    <file src="..\..\src\Sitecore.Mvc.Contrib\serialization\**\*" target="serialization" />
+    <file src="..\..\src\Sitecore.Mvc.Contrib\tools\**\*" target="tools" />
   </files>
 </package>

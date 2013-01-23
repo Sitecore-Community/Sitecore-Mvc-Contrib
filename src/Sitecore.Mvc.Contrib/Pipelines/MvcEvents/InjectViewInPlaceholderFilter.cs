@@ -9,18 +9,32 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
     public class InjectViewInPlaceholderFilter : Mvc.Pipelines.MvcEvents.ResultExecuting.ResultExecutingProcessor
     {
         private readonly ILog _logger;
-        private readonly IPageContext _pageContext;
+        private IPageContext _pageContext;
 
-        public InjectViewInPlaceholderFilter(ILog logger, IPageContext pageContext)
+        public InjectViewInPlaceholderFilter(ILog logger)
         {
             _logger = logger;
-            _pageContext = pageContext;
         }
 
         public InjectViewInPlaceholderFilter()
-            : this(new LogWrapper(), new PageContextWrapper(PageContext.Current))
+            : this(new LogWrapper())
         {
 
+        }
+
+        public IPageContext PageContext
+        { 
+            get
+            {
+                if (_pageContext != null)
+                {
+                    return _pageContext;
+                }
+                
+                return new PageContextWrapper(Sitecore.Mvc.Presentation.PageContext.Current);
+            }
+
+            set { _pageContext = value; }
         }
 
         /// <summary>
@@ -35,7 +49,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
         /// routes.MapRoute(
         ///   "HelloWorld", // Route name
         ///   "hello/{action}/{id}", // URL with parameters
-        ///   new { controller = "HelloWorld", scItemPath = "/sitecore/content/home", scPlaceholder = "main", id = UrlParameter.Optional }
+        ///   new { controller = "HelloWorld", scItemPath = "/sitecore/content/Mvc Sample", scPlaceholder = "main", id = UrlParameter.Optional }
         ///  );
         /// </summary>
         /// <param name="args">Pipeline arguments with filter context</param>
@@ -69,7 +83,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
 
         private bool IsMissingPresentationValues(string placeholder)
         {
-            return (string.IsNullOrEmpty(placeholder) || _pageContext.Item == null);
+            return (string.IsNullOrEmpty(placeholder) || PageContext.Item == null);
         }
 
         private static ViewEngineResult GetView(ViewResult viewResult, ControllerContext filterContext, string viewPath)
@@ -115,6 +129,8 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
         {
             _logger.Info("InjectViewInPlace called on InjectViewInPlaceholderFilter", this);
 
+            var pageContext = PageContext;
+
             if (placeholder != null)
             {
                 var contentRendering = new ContentRendering
@@ -122,7 +138,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
                                                Id = Guid.NewGuid(),
                                                UniqueId = Guid.NewGuid(),
                                                Placeholder = placeholder,
-                                               DeviceId = _pageContext.Device.Id
+                                               DeviceId = pageContext.Device.Id
                                            };
 
                 using (var sw = new StringWriter())
@@ -132,11 +148,11 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
                     contentRendering.Content = sw.ToString();
                 }
 
-                var currentRenderings = _pageContext.PageDefinition.Renderings;
+                var currentRenderings = pageContext.PageDefinition.Renderings;
                 currentRenderings.Add(contentRendering);
             }
 
-            return _pageContext.PageView;
+            return pageContext.PageView;
         }
     }
 }

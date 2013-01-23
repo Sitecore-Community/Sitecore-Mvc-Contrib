@@ -1,0 +1,32 @@
+﻿@using Sitecore.Mvc
+@model Sitecore.Mvc.Presentation.RenderingModel
+@{
+    Layout = null;   
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/sample/">View Rendering</a></li>
+                <li><a href="/sample/controller rendering">Controller Rendering</a></li>
+                <li><a href="/sample/area controller rendering">Area Controller Rendering</a></li>
+                <li><a href="/hello/">Injected View in Placeholder</a></li>                
+            </ul>
+        </nav>
+    </header>
+    <article>
+        @Html.Sitecore().Placeholder("main")
+    </article>
+    <footer>
+        
+    </footer>
+</body>
+</html>

@@ -35,6 +35,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packaging", "packaging", "{05F4023A-A4F6-4844-8175-8D7E04C63913}"
 	ProjectSection(SolutionItems) = preProject
 		build\packaging\Sitecore.Mvc.Contrib.nuspec = build\packaging\Sitecore.Mvc.Contrib.nuspec
+		build\packaging\Sitecore.Mvc.Contrib.Sample.nuspec = build\packaging\Sitecore.Mvc.Contrib.Sample.nuspec
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Mvc.Contrib.Test", "tests\unit-test\Sitecore.Mvc.Contrib.Test\Sitecore.Mvc.Contrib.Test.csproj", "{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4}"
@@ -43,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{D11D4F10-B
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Mvc.Contrib.Sample", "src\Sitecore.Mvc.Contrib.Sample\Sitecore.Mvc.Contrib.Sample.csproj", "{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -84,6 +87,16 @@ Global
 		{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4}.Release|x86.ActiveCfg = Release|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +104,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5791FCD4-6691-4EA6-8E02-000AF1E707A4} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
 		{8DA484D1-06D3-4749-8275-C9B3346C2584} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
+		{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
 		{05F4023A-A4F6-4844-8175-8D7E04C63913} = {33043060-6D33-4018-9F77-A36E70771C93}
 		{923D9377-9025-425B-9698-1A38947CA973} = {2A29E5BC-9DE1-4299-AFD9-86F1CC77B921}
 		{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4} = {923D9377-9025-425B-9698-1A38947CA973}

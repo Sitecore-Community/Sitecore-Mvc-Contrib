@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {440A8190-39C6-42A2-B490-320874BF4260}
+database: master
+path: /sitecore/templates/User Defined/MVC Contrib/Layout/Renderings/Controller rendering with validation/__Standard Values
+parent: {EF42883B-1D1D-40A6-8FE8-3FB85DE5B73B}
+name: __Standard Values
+master: {00000000-0000-0000-0000-000000000000}
+template: {EF42883B-1D1D-40A6-8FE8-3FB85DE5B73B}
+templatekey: Controller rendering with validation
+
+----field----
+field: {94069F66-609C-48B0-8281-521C30FB269D}
+name: Open Properties after Add
+key: open properties after add
+content-length: 1
+
+-
+----field----
+field: {C2F5B2B5-71C1-431E-BF7F-DBDC1E5A2F83}
+name: __Quick Action Bar Validation Rules
+key: __quick action bar validation rules
+content-length: 38
+
+{A33879A1-7688-4932-966C-92417EB968F8}
+----field----
+field: {57CBCA4C-8C94-446C-B8CA-7D8DC54F4285}
+name: __Validate Button Validation Rules
+key: __validate button validation rules
+content-length: 38
+
+{A33879A1-7688-4932-966C-92417EB968F8}
+----field----
+field: {B7E5B151-B145-4CED-85C5-FBDB566DFA4D}
+name: __Validator Bar Validation Rules
+key: __validator bar validation rules
+content-length: 38
+
+{A33879A1-7688-4932-966C-92417EB968F8}
+----version----
+language: en
+version: 1
+revision: e7fa140f-f7b0-4453-bc14-2b67a11eb5f8
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20130204T114353
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+e7fa140f-f7b0-4453-bc14-2b67a11eb5f8
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20130204T114456:634955750964418263
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

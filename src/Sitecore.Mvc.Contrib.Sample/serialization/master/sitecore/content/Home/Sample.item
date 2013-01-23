@@ -1,0 +1,72 @@
+----item----
+version: 1
+id: {36BD501D-76B9-468F-BCCB-7F4EB79AF92F}
+database: master
+path: /sitecore/content/Home/Sample
+parent: {110D559F-DEA5-42EA-9C1C-8A5DF7E70EF9}
+name: Sample
+master: {00000000-0000-0000-0000-000000000000}
+template: {62D738B9-774F-4AD7-B99B-122796F0C6C5}
+templatekey: Sample Item
+
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 470
+
+<r xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}"><r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{96686039-5FE8-4F1A-BBB1-10C84B60DF4F}" /><r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{5FFDFA63-19B6-474C-9D13-E2C2C361B96A}" /><r id="{197329ED-040F-44A8-B11D-0260EAD85876}" ph="content" uid="{46106F0D-E7FD-4202-BA58-51C8867DD119}" /></d></r>
+----field----
+field: {A4F985D9-98B3-4B52-AAAF-4344F6E747C6}
+name: __Workflow
+key: __workflow
+content-length: 38
+
+{A5BC37E7-ED96-4C1E-8590-A26E64DB55EA}
+----version----
+language: en
+version: 1
+revision: a8d55a50-2fc4-45d7-ab39-69a08dd444eb
+
+----field----
+field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
+name: Title
+key: title
+content-length: 6
+
+Sample
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20130206T154100
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+a8d55a50-2fc4-45d7-ab39-69a08dd444eb
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20130206T163732:634957654529115370
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {3E431DE1-525E-47A3-B6B0-1CCBEC3A8C98}
+name: __Workflow state
+key: __workflow state
+content-length: 38
+
+{FCA998C5-0CC3-4F91-94D8-0A4E6CAECE88}

@@ -1,0 +1,25 @@
+TODO 
+
+ref : http://vsplugins.sitecore.net/Sitecore-NuGet.ashx
+
+
+README.md
+- note about making sure that the sitecore connector is connected from web project
+
+route registration in global.asax
+- https://github.com/davidebbo/WebActivator
+-  scPlaceholder = "content"
+- item "/sitecore/content/Mvc Sample"
+
+
+Sitecore.NuGet.Sample.1.0\
+- content\sitecore\NuGet\Sitecore.NuGet.Sample
+- serialization
+
+
+Inetmgr
+- add binding for http://sample.127-0-0-1.org.uk/
+
+
+config patch file
+- where do I need to patch in sampleSite

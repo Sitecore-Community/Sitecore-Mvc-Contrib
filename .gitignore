@@ -27,6 +27,14 @@ TestResults
 
 #Project specific ignores
 lib/Sitecore.*.dll
+lib/ComponentArt.Web.UI.dll
+lib/HtmlAgilityPack.dll
+lib/ITHit.WebDAV.Server.dll
+lib/Lucene.Net.dll
+lib/Mvp.Xml.dll
+lib/Newtonsoft.Json.dll
+lib/RadEditor.Net2.dll
+lib/Telerik.Web.UI.dll
 
 /packages
 

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Sitecore.Mvc.Contrib.Sample</id>
+    <version>0.0.0</version>
+    <authors>Kern Herskind, Kevin Obee, Kevin Buckley</authors>
+    <owners>Sitecore</owners>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
+    <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This is a set of samples for the Sitecore MVC</description>
+    <releaseNotes>This is a pre-release version of the package.</releaseNotes>
+    <copyright>Copyright (C) by Sitecore A/S</copyright>
+    <tags>Sitecore CMS MVC Contrib</tags>
+    <language>en-GB</language>
+    <dependencies>
+      <dependency id="Sitecore.Mvc.Contrib" version="0.1.0" />
+      <dependency id="WebActivator" version="1.5.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\..\artifacts\Build\Sitecore.Abstractions.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Abstractions.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.Sample.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.Sample.pdb" target="lib\net40" />
+
+    <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\content\**\*" target="content" />
+    <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\serialization\**\*" target="serialization" />
+    <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\tools\**\*" target="tools" />
+    <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\readme.txt" />  
+  </files>
+
+</package>

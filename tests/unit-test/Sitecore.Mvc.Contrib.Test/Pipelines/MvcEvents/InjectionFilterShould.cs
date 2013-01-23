@@ -5,14 +5,16 @@ using System.Web.Routing;
 
 using Moq;
 using NUnit.Framework;
+
 using Sitecore.Diagnostics;
 using Sitecore.Mvc.Contrib.Pipelines.MvcEvents;
 using Sitecore.Mvc.Devices;
 using Sitecore.Mvc.Pipelines.MvcEvents.ResultExecuting;
 using Sitecore.Mvc.Presentation;
+
 using Assert = NUnit.Framework.Assert;
 
-namespace Sitecore.Mvc.Contrib.Test
+namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
 {
     [TestFixture]
     public class InjectionFilterShould
@@ -36,7 +38,7 @@ namespace Sitecore.Mvc.Contrib.Test
             _pageContext.SetupAllProperties();
             _pageContext.SetupGet(x => x.PageDefinition).Returns(new PageDefinition());
 
-            _filter = new InjectViewInPlaceholderFilter(_logger.Object, _pageContext.Object);
+            _filter = new InjectViewInPlaceholderFilter(_logger.Object) { PageContext = _pageContext.Object };
 
             _httpContext = new Mock<HttpContextBase>();
             _httpContext.SetupAllProperties();
@@ -55,7 +57,7 @@ namespace Sitecore.Mvc.Contrib.Test
 
             _viewEngineResult = new ViewEngineResult(_view.Object, _viewEngine.Object);
         }
-
+        
         [Test]
         public void ProcessShouldIgnoreNullViewResults()
         {

@@ -22,19 +22,33 @@ Options for installation are:
 
 ## Requirements
 
-Requires `Sitecore v6.6` or above. MVC also need to be configured (see docs or SDN for more info).
+* .NET Framework 4
+
+* MVC 3 
+
+* `Sitecore v6.6` or above. MVC also need to be configured (see docs or SDN for more info).
+
+## Contributions
+
+Please ensure that any assemblies added to the solution are compatible with Visual Studio 2010.
+
+
 
 ## Usage
 
 ### Model
+
 Create a class and inherit from `Sitecore.Mvc.Contrib.Models.ItemModel`. (from John West blog)
 
 ### Controllers
+
 `Sitecore.Mvc.Contrib.Controllers.ViewInjectingController`.. Automatically inserts view into placeholder (useful when using routing)
 
 ### Views 
+
 Contains `WebPageView` helper. Add `@inherits Sitecore.Mvc.Contrib.Views.WebViewPage<MODELTYPEHERE>` to the top of your view.
 (from John West blog)
 
 ### Other
+
 `IRegisterRoutes` allows controllers to self-register their routes. 

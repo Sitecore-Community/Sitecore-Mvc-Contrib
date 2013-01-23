@@ -1,0 +1,35 @@
+﻿<div>
+    <p>This content has been injected into a Sitecore placeholder.</p>
+
+    <ul>
+        <li>An action method on the HelloWorld controller was invoked by the route matching the HTTP request</li>
+        <li>A ViewResult was returned by the action method</li>
+        <li>A View was located by a ViewEngine and it's contents were loaded into a ContentRendering</li>
+        <li>The Placeholder property of the ContentRendering was set from the scPlaceholder route data value</li>
+        <li>The new ContentRendering was added to the renderings associated with the PageContext</li>
+        <li>The MVC runtime rendered the content using the PageContext.PageView</li>
+    </ul>
+
+    <p>To demonstrate the InjectViewInPlaceholderFilter functionality a single route has been installed by the sample package.</p>
+    
+    <pre><code>
+    RouteTable.Routes.MapRoute(
+        "HelloWorld", // Route name
+        "hello/{action}/{id}", // URL with parameters
+        new
+        {
+            controller = "HelloWorld",
+            scItemPath = "/sitecore/content/Mvc Sample",
+            scPlaceholder = "main",
+            partialView = "true",
+            id = UrlParameter.Optional
+        });
+    </code></pre>
+    
+    <p>The route can be tested by browsing to either:</p>
+    
+    <ul class="navLinks">
+        <li><a href="/hello">http://&lt;domain&gt;/hello</a></li>
+        <li><a href="/hello/redir">http://&lt;domain&gt;/hello/redir</a></li>
+    </ul>
+</div>

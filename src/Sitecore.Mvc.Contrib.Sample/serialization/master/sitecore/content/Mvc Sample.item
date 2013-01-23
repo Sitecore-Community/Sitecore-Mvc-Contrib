@@ -1,0 +1,76 @@
+----item----
+version: 1
+id: {8DEB1C1D-7B87-4A37-A855-CC98B359A2BD}
+database: master
+path: /sitecore/content/Mvc Sample
+parent: {0DE95AE4-41AB-4D01-9EB0-67441B7C2450}
+name: Mvc Sample
+master: {00000000-0000-0000-0000-000000000000}
+template: {62D738B9-774F-4AD7-B99B-122796F0C6C5}
+templatekey: Sample Item
+
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 36
+
+Applications/16x16/nav_down_blue.png
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 211
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}" />
+  <d id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}" />
+  <d id="{73966209-F1B6-43CA-853A-F1DB1C9A654B}" />
+</r>
+----version----
+language: en
+version: 1
+revision: 5c0ff0db-4068-45fe-b3f7-35ed6a4fca1b
+
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20130208T125005
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+5c0ff0db-4068-45fe-b3f7-35ed6a4fca1b
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20130208T125102:634959246626857981
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

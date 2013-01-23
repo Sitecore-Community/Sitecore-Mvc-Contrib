@@ -6,14 +6,17 @@
   <PropertyGroup>
     <Configuration Condition="$(Configuration) == ''">Release</Configuration>
     <ProjectRoot>$(MSBuildProjectDirectory)\..</ProjectRoot>
+    <LibsSrcPath>D:\LibsSrc</LibsSrcPath>
+    <LibsDestPath>$(ProjectRoot)\lib</LibsDestPath>
     <PackagingPath>$(MSBuildProjectDirectory)\packaging</PackagingPath>
-    <ArtifactsPath>$(ProjectRoot)\artifacts\$(Configuration)</ArtifactsPath>
+    <ArtifactsPath>$(ProjectRoot)\artifacts</ArtifactsPath>
     <AnalysisResultsPath>$(ArtifactsPath)\CodeAnalysis</AnalysisResultsPath>
     <BuildResultsPath>$(ArtifactsPath)\Build</BuildResultsPath>
     <TestResultsPath>$(ArtifactsPath)\TestResults</TestResultsPath>
     <PackageResultsPath>$(ArtifactsPath)\Packages</PackageResultsPath>
     <NuGetToolsPath>$(ProjectRoot)\.nuget</NuGetToolsPath>
     <NuGetExePath>$(NuGetToolsPath)\nuget.exe</NuGetExePath>
+    <OutputXmlFile>$(TestResultsPath)\TestResults.xml</OutputXmlFile>
     <ToolsPath>$(ProjectRoot)\tools</ToolsPath>
     <NunitPath>$(ToolsPath)\nunit</NunitPath>
   </PropertyGroup>
@@ -25,12 +28,23 @@
     <BuildDate>$([MSBuild]::Add(1, $([MSBuild]::Subtract($([System.DateTime]::Now.Year), $(VersionStartYear)))))$([System.DateTime]::Now.ToString("MMdd"))</BuildDate>
     <Revision Condition="$(BUILD_NUMBER) != ''">$(BUILD_NUMBER)</Revision>
     <Revision Condition="$(BUILD_NUMBER) == ''">0</Revision>
-    <PrereleaseTagWithSeparator Condition="$(PRERELEASE) != '' And $(BuildQuality) != ''">-$(BuildQuality)-$([System.DateTime]::Now.ToString("yyMMdd"))</PrereleaseTagWithSeparator>
+    <PrereleaseTagWithSeparator Condition="$(PRERELEASE) != ''">.$([System.DateTime]::Now.ToString("yyMMdd"))</PrereleaseTagWithSeparator>
     <Version>$(MajorVersion).$(MinorVersion).$(PatchVersion)</Version>
     <FileVersion>$(MajorVersion).$(MinorVersion).$(BuildDate).$(Revision)</FileVersion>
     <PackageVersion>$(MajorVersion).$(MinorVersion).$(PatchVersion)$(PrereleaseTagWithSeparator)</PackageVersion>
   </PropertyGroup>
 
+  <Target Name="CopyLibs">
+    <ItemGroup>
+      <LibFiles Include="$(LibsSrcPath)\*.dll" />
+    </ItemGroup>
+      
+      <Copy
+          SourceFiles="@(LibFiles)"
+          DestinationFolder="$(LibsDestPath)"
+        />
+  </Target>
+  
   <Target Name="Clean">
     <RemoveDir Directories="$(ArtifactsPath)"  />
   </Target>
@@ -45,7 +59,7 @@
   <Target Name="Build" DependsOnTargets="Init">
     <MSBuild Projects="$(ProjectRoot)\Sitecore.Mvc.Contrib.sln"
              Targets="Build"
-             Properties="Configuration=$(Configuration);OutDir=$(BuildResultsPath)" />
+             Properties="Configuration=$(Configuration);OutDir=$(BuildResultsPath)\" />
   </Target>
   
   <Target Name="RunCodeAnalysis" DependsOnTargets="Init" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\CodeAnalysis\fxcoptask.dll')">
@@ -55,7 +69,7 @@
 
     <MSBuild Projects="%(AnalysisProjects.Identity)"
              Targets="ReBuild"
-             Properties="RunCodeAnalysis=true;Configuration=$(Configuration);OutDir=$(AnalysisResultsPath)" />
+             Properties="RunCodeAnalysis=true;Configuration=$(Configuration);OutDir=$(AnalysisResultsPath)\" />
 
     <!-- Remove the build artifacts -->
     <ItemGroup>
@@ -65,8 +79,7 @@
     <Delete Files="@(FilesToDelete)" />
   </Target>
   
-  
-  <!--<ItemGroup>
+  <ItemGroup>
     <RegexTransform Include="$(ProjectRoot)\src\Common\CommonVersionInfo.cs">
       <Find>AssemblyVersion\("\d+\.\d+\.\d+"\)</Find>
       <ReplaceWith>AssemblyVersion("$(Version)")</ReplaceWith>
@@ -79,37 +92,45 @@
       <Find>AssemblyInformationalVersion\("\d+\.\d+\.\d+(-\w+\d*(-\d+)?)?"\)</Find>
       <ReplaceWith>AssemblyInformationalVersion("$(PackageVersion)")</ReplaceWith>
     </RegexTransform>
-  </ItemGroup>-->
+  </ItemGroup>
 
-  <!--<Target Name="UpdateVersion">
+  <Target Name="UpdateVersion">
     <RegexTransform Items="@(RegexTransform)" />
-  </Target>-->
+  </Target>
 
   <Target Name="RunUnitTests" DependsOnTargets="Build">
     <CreateItem Include="$(BuildResultsPath)\*.Test.dll">
       <Output TaskParameter="Include" ItemName="TestAssembly" />
     </CreateItem>
-    
+   
     <NUnit
       ToolPath="$(NunitPath)"
       DisableShadowCopy="true"
       Assemblies="@(TestAssembly)"
-      OutputXmlFile="$(TestResultsPath)\TestResults.xml"
-      ExcludeCategory="Acceptance;Database;Integration;Smoke" />    
+      OutputXmlFile="$(OutputXmlFile)"
+      ExcludeCategory="Acceptance;Database;Integration;Smoke" />   
+
   </Target>
+
+  <Target Name="ReportUnitTests" DependsOnTargets="RunUnitTests">
+    <Message Text="##teamcity[importData type='nunit' path='$(OutputXmlFile)']" />    
+  </Target>          
   
   <Target Name="RunTests" DependsOnTargets="RunUnitTests; "> <!-- Add other test types as depends here -->
   </Target>
 
-  <Target Name="StdPackage" DependsOnTargets="Build">
+  <Target Name="StdPackage">
     <Exec 
-        Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.nuspec -Verbosity detailed -Version $(Version) -OutputDirectory $(PackageResultsPath)" />
+        Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
+
+    <Exec
+      Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.Sample.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
   </Target>
   
   <Target Name="Go" DependsOnTargets="RunCodeAnalysis; Build; RunTests; StdPackage">
   </Target>
 
-  <Target Name="BuildCmd" DependsOnTargets="RunCodeAnalysis; Build; RunUnitTests;">
+  <Target Name="GoCI" DependsOnTargets="UpdateVersion; CopyLibs; Build">
   </Target>
   
 </Project>

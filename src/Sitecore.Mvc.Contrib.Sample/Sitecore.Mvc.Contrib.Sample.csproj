@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ABC454A-FDD0-47B7-BC9C-C2BC7BE4C7AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sitecore.Mvc.Contrib.Sample</RootNamespace>
+    <AssemblyName>Sitecore.Mvc.Contrib.Sample</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\MvcContribPackage.cs" />
+    <None Include="content\Areas\SampleArea\Views\SampleArea\Index.cshtml" />
+    <None Include="content\Areas\SampleArea\Views\Web.config" />
+    <None Include="content\Controllers\HelloWorldController.cs" />
+    <None Include="content\Controllers\SimpleController.cs" />
+    <None Include="content\Model\SimpleViewModel.cs" />
+    <None Include="content\Areas\SampleArea\Controllers\SampleAreaController.cs" />
+    <None Include="content\Areas\SampleArea\SampleAreaAreaRegistration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\App_Config\Include\Sitecore.Mvc.Contrib.config" />
+    <None Include="content\Views\HelloWorld\Index.cshtml" />
+    <None Include="content\Views\Layouts\MainView.cshtml" />
+    <None Include="content\Views\Renderings\Content\Sample View Rendering.cshtml" />
+    <None Include="content\Views\Renderings\Layout\Sample Inner View.cshtml" />
+    <None Include="content\Views\Renderings\Layout\Sample View.cshtml" />
+    <None Include="content\Views\Shared\Error.cshtml" />
+    <None Include="content\Views\Shared\_Layout.cshtml" />
+    <None Include="content\Views\Simple\Index.cshtml" />
+    <None Include="content\Views\Web.config" />
+    <None Include="content\Views\_ViewStart.cshtml" />
+    <None Include="packages.config" />
+    <None Include="serialization\master\sitecore\content\Home\Sample.item" />
+    <None Include="serialization\master\sitecore\content\Home\Sample\Area Controller Rendering.item" />
+    <None Include="serialization\master\sitecore\content\Home\Sample\Controller Rendering.item" />
+    <None Include="serialization\master\sitecore\content\Mvc Sample.item" />
+    <None Include="serialization\master\sitecore\layout\Layouts\MainView Layout.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample Area Controller.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample View Rendering.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Simple Controller Rendering.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Layout.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Layout\Sample Inner View.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Layout\Sample View.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Navigation.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data\Text.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data\Title.item" />
+    <None Include="tools\init.ps1" />
+    <None Include="tools\install.ps1" />
+    <None Include="tools\uninstall.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
+      <Project>{8DA484D1-06D3-4749-8275-C9B3346C2584}</Project>
+      <Name>Sitecore.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sitecore.Mvc.Contrib\Sitecore.Mvc.Contrib.csproj">
+      <Project>{5791fcd4-6691-4ea6-8e02-000af1e707a4}</Project>
+      <Name>Sitecore.Mvc.Contrib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\Content\Site.css" />
+    <Content Include="content\sitecore\NuGet\Sitecore.Mvc.Contrib.Sample\about.txt" />
+    <Content Include="readme.txt" />
+    <Content Include="tools\Sitecore.NuGet.1.0.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="content\Areas\SampleArea\Models\" />
+    <Folder Include="content\Areas\SampleArea\Views\Shared\" />
+    <Folder Include="content\Views\Renderings\Navigation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
