@@ -13,9 +13,9 @@ templatekey: Area Controller
 field: {E64AD073-DFCC-4D20-8C0B-FE5AA6226CD7}
 name: Controller
 key: controller
-content-length: 20
+content-length: 10
 
-SampleAreaController
+SampleArea
 ----field----
 field: {DED9E431-3604-4921-A4B3-A6EC7636A5B6}
 name: Controller Action
@@ -33,7 +33,7 @@ content-length: 1
 ----version----
 language: en
 version: 1
-revision: 2d2a4640-bf0a-4206-9a66-7852636bd9de
+revision: 7d688996-5746-4660-a7a5-ff2caf235f5f
 
 ----field----
 field: {53E3D9CC-AECE-4822-BF50-34BBF3716BD1}
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2d2a4640-bf0a-4206-9a66-7852636bd9de
+7d688996-5746-4660-a7a5-ff2caf235f5f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130208T101849:634959155294754084
+20130211T101243:634961743636207329
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

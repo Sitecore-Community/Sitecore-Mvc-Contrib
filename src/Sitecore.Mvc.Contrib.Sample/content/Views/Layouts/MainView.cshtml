@@ -9,24 +9,36 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" type="text/css" href="Content/Site.css">
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/bootstrap/css/bootstrap-responsive.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+    <script src="/Content/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="/sample/">View Rendering</a></li>
-                <li><a href="/sample/controller rendering">Controller Rendering</a></li>
-                <li><a href="/sample/area controller rendering">Area Controller Rendering</a></li>
-                <li><a href="/hello/">Injected View in Placeholder</a></li>                
-            </ul>
+        <nav class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="/sample">
+                    <img width="42" height="42" alt="Sitecore Logo" src="/sitecore/shell/themes/standard/Images/HomeButton2.png?w=42&h=42&as=1" style="margin-right: 10px;" />Sitecore MVC + Contrib</a>
+            </div>
         </nav>
     </header>
-    <article>
-        @Html.Sitecore().Placeholder("main")
-    </article>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span10">
+                @Html.Sitecore().Placeholder("main")
+            </div>
+            <div class="span2">
+                <ul class="nav nav-list">
+                    <li class="nav-header">Contrib Content</li>
+                    <li><a href="/sample/controller rendering">Controller Rendering</a></li>
+                    <li><a href="/sample/area controller rendering">MVC Areas</a></li>
+                    <li><a href="/hello/">View Injector</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <footer>
-        
     </footer>
 </body>
 </html>

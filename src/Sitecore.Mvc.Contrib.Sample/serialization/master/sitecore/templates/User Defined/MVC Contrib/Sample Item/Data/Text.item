@@ -13,16 +13,16 @@ templatekey: Template field
 field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
 name: Type
 key: type
-content-length: 16
+content-length: 9
 
-Single-Line Text
+Rich Text
 ----field----
 field: {1EB8AE32-E190-44A6-968D-ED904C794EBF}
 name: Source
 key: source
-content-length: 64
+content-length: 60
 
-/sitecore/system/Settings/Html Editor Profiles/Rich Text Default
+/sitecore/system/Settings/Html Editor Profiles/Rich Text IDE
 ----field----
 field: {BA3F86A2-4A1C-4D78-B63D-91C2779C1B5E}
 name: __Sortorder
@@ -33,7 +33,7 @@ content-length: 3
 ----version----
 language: en
 version: 1
-revision: 4acdfdba-3504-4d6d-beef-583e483954dc
+revision: 4b7d2b60-32ee-4445-86ba-22884a84a03d
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -62,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4acdfdba-3504-4d6d-beef-583e483954dc
+4b7d2b60-32ee-4445-86ba-22884a84a03d
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130206T153713:634957618337715340
+20130211T112051:634961784519479588
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

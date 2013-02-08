@@ -84,6 +84,7 @@
     <None Include="serialization\master\sitecore\layout\Layouts\MainView Layout.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Area Controller Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample Area Controller.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample View Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Simple Controller Rendering.item" />
@@ -110,8 +111,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="content\Content\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="content\Content\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="content\Content\bootstrap\css\bootstrap.css" />
+    <Content Include="content\Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="content\Content\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="content\Content\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="content\Content\bootstrap\js\bootstrap.js" />
+    <Content Include="content\Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="content\Content\Site.css" />
-    <Content Include="content\sitecore\NuGet\Sitecore.Mvc.Contrib.Sample\about.txt" />
     <Content Include="readme.txt" />
     <Content Include="tools\Sitecore.NuGet.1.0.dll" />
   </ItemGroup>

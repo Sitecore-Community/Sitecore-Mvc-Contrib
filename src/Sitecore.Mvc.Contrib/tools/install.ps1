@@ -5,6 +5,13 @@ param($rootPath, $toolsPath, $package, $project)
 # Sitecore package management
 if ((test-path (join-path $toolsPath uninstall.items.log)) -ne $true) 
 {
+  $project.Object.References.Add("Microsoft.CSharp");
+  $project.Object.References.Add("System.Web.Mvc");     
+  $project.Object.References.Add("Microsoft.Web.Infrastructure");    
+  $project.Object.References.Add("System.Web.WebPages");     
+  $project.Object.References.Add("System.Web.Razor");     
+  $project.Object.References.Add("System.ComponentModel.DataAnnotations");
+
   $module = (join-path $env:temp Sitecore.NuGet.1.0.dll);
   if ((test-path $module) -ne $true) { copy-item (join-path $toolsPath Sitecore.NuGet.1.0.dll) $module; }
   import-module $module;
@@ -12,3 +19,5 @@ if ((test-path (join-path $toolsPath uninstall.items.log)) -ne $true)
   install-items -toolspath $toolsPath -project $project -dte $dte;
   install-serverfiles -toolspath $toolsPath -project $project -dte $dte;
 }
+
+

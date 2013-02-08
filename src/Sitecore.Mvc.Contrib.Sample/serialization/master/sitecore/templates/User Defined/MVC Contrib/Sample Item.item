@@ -29,11 +29,11 @@ name: __Icon
 key: __icon
 content-length: 31
 
-Applications/16x16/document.png
+Applications/32x32/document.png
 ----version----
 language: en
 version: 1
-revision: 2feddb0d-138e-4598-a3cd-17ed295950ef
+revision: 043cfffa-e2b6-42e2-b5d1-f71c525cf952
 
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
@@ -55,14 +55,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2feddb0d-138e-4598-a3cd-17ed295950ef
+043cfffa-e2b6-42e2-b5d1-f71c525cf952
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130206T153758:634957618780050640
+20130211T104907:634961765470112672
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
