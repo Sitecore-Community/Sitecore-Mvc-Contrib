@@ -1,6 +1,6 @@
 ----item----
 version: 1
-id: {8DEB1C1D-7B87-4A37-A855-CC98B359A2BD}
+id: {0BCF89A6-D202-4700-A31C-5C3D66E3E094}
 database: master
 path: /sitecore/content/Mvc Sample
 parent: {0DE95AE4-41AB-4D01-9EB0-67441B7C2450}
@@ -20,17 +20,20 @@ Applications/16x16/nav_down_blue.png
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 211
+content-length: 445
 
 <r>
-  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}" />
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}">
+    <r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{D5FD5EF5-FA92-4BC9-9093-450DBA2A3337}" />
+    <r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{3B143E87-4D24-472D-9F61-1C8E4E7E9BA7}" />
+  </d>
   <d id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}" />
   <d id="{73966209-F1B6-43CA-853A-F1DB1C9A654B}" />
 </r>
 ----version----
 language: en
 version: 1
-revision: 5c0ff0db-4068-45fe-b3f7-35ed6a4fca1b
+revision: b00b4a91-5e7d-4c70-a8cb-c0b2313f9479
 
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -45,7 +48,7 @@ name: __Created
 key: __created
 content-length: 15
 
-20130208T125005
+20130211T153508
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -59,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5c0ff0db-4068-45fe-b3f7-35ed6a4fca1b
+b00b4a91-5e7d-4c70-a8cb-c0b2313f9479
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130208T125102:634959246626857981
+20130211T153801:634961938813431569
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
