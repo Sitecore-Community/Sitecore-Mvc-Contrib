@@ -92,8 +92,11 @@
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Layout\Sample Inner View.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Layout\Sample View.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Navigation.item" />
+    <None Include="serialization\master\sitecore\media library\Images\MVC Contrib.item" />
+    <None Include="serialization\master\sitecore\media library\Images\MVC Contrib\Sample Area Controller.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data\Image.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data\Text.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Sample Item\Data\Title.item" />
     <None Include="tools\init.ps1" />

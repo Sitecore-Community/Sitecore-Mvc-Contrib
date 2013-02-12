@@ -1,40 +1,26 @@
 ----item----
 version: 1
-id: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
+id: {59F12078-F0D8-46B0-9688-42090BB01167}
 database: master
-path: /sitecore/templates/User Defined/MVC Contrib/Sample Item/Data/Title
-parent: {449F7C88-3162-4F9B-952C-104E3581A947}
-name: Title
+path: /sitecore/media library/Images/MVC Contrib
+parent: {15451229-7534-44EF-815D-D93D6170BFCB}
+name: MVC Contrib
 master: {00000000-0000-0000-0000-000000000000}
-template: {455A3E98-A627-4B40-8035-E683A0331AC7}
-templatekey: Template field
+template: {FE5DD826-48C6-436D-B87A-7C4210C7413B}
+templatekey: Media folder
 
-----field----
-field: {AB162CC0-DC80-4ABF-8871-998EE5D7BA32}
-name: Type
-key: type
-content-length: 16
-
-Single-Line Text
 ----version----
 language: en
 version: 1
-revision: 5cdb2509-537b-4cfc-9e1f-11b46b7e62dd
+revision: 755844ee-6583-4994-b653-796f27b60dcf
 
-----field----
-field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
-name: __Owner
-key: __owner
-content-length: 14
-
-sitecore\admin
 ----field----
 field: {25BED78C-4957-4165-998A-CA1B52F67497}
 name: __Created
 key: __created
 content-length: 15
 
-20130206T153713
+20130212T163436
 ----field----
 field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
 name: __Created by
@@ -48,14 +34,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-5cdb2509-537b-4cfc-9e1f-11b46b7e62dd
+755844ee-6583-4994-b653-796f27b60dcf
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130212T165302:634962847826909882
+20130212T163445:634962836859989882
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

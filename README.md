@@ -3,19 +3,24 @@
 This project extends the basse MVC functionality introduced in Sitecore 6.6, providing a set of common classes and helpers that you may need while using Sitecore MVC.
 
 
-## Building
-
-* Place your `Sitecore.Kernel.dll`, `Sitecore.Mvc.dll` and the `Sitecore.Logging.dll` assmeblies in the `\lib` directory.
-* Run `.\build`  from the root of the checkout folder to invoke an automated debug build of the project. The outputs from this automated build are detailed in the build folder `README.md` file.
-
-
 ## Requirements
 
 * .NET Framework 4
 
+* Visual Studio 2010 with NuGet Package Manager extension installed. 
+
+    Ensure that the Package Restore checkbox has been ticked in the NuGet Package Manager Options dialog.
+
 * MVC 3 
 
 * Sitecore v6.6 or above. MVC also need to be configured (see docs or SDN for more info).
+
+
+## Building
+
+* Place your `Sitecore.Kernel.dll`, `Sitecore.Mvc.dll` and the `Sitecore.Logging.dll` assmeblies in the `\lib` directory.
+
+* Run `.\build`  from the root of the checkout folder to invoke an automated debug build of the project. The outputs from this automated build are detailed in the build folder `README.md` file.
 
 
 ## Installation
@@ -53,13 +58,8 @@ Options for installation are:
 
 	The sample package installs both the contrib project plus some sample content within Sitecore that can be used to better understand how to use the contrib project code.
 
-* Run a build once the package has been fully installed. Once the package installation has been completed a readme.txt file will be displayed in the Visual Studio IDE.
+* Once the package installation has been completed a readme.txt file will be displayed in the Visual Studio IDE. Follow the instructions in this readme file to complete the installation of the contrib package.
 
-* Publish the site from within Sitecore.
-
-* If you installed the sample package  you can now browse the sample content using the url:
-
-    `http://domain/sample`
 
 ## Contributions
 

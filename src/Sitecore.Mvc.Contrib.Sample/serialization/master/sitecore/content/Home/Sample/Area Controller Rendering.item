@@ -19,7 +19,7 @@ content-length: 470
 ----version----
 language: en
 version: 1
-revision: 90cbc895-9c35-4545-8364-bbd491cea741
+revision: 456184bc-e95e-42d3-87df-ec47823e7536
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -28,6 +28,13 @@ key: title
 content-length: 25
 
 Area Controller Rendering
+----field----
+field: {85F6A2FE-B126-43F0-81A0-B6E6F0C4C3E8}
+name: Image
+key: image
+content-length: 178
+
+<image mediapath="" alt="Sample Area Controller" width="" height="" hspace="" vspace="" showineditor="" usethumbnail="" src="" mediaid="{4159AF2B-AB65-467F-B11B-E927269191B7}" />
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,14 +62,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-90cbc895-9c35-4545-8364-bbd491cea741
+456184bc-e95e-42d3-87df-ec47823e7536
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130211T154937:634961945771679558
+20130212T165549:634962849493149882
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
