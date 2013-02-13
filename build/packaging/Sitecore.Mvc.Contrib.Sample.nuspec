@@ -3,8 +3,8 @@
   <metadata>
     <id>Sitecore.Mvc.Contrib.Sample</id>
     <version>0.0.0</version>
-    <authors>Kern Herskind, Kevin Obee, Kevin Buckley</authors>
-    <owners>Sitecore</owners>
+    <authors>Mike Edwards, Kern Herskind, Kevin Buckley, Kevin Obee, Stephen Pope</authors>
+    <owners>kevinobee</owners>
     <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
     <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
@@ -20,12 +20,12 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Build\Sitecore.Abstractions.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\Sitecore.Abstractions.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.Sample.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\Sitecore.Mvc.Contrib.Sample.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.Sample.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.Sample.pdb" target="lib\net40" />
 
     <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\content\**\*" target="content" />
     <file src="..\..\src\Sitecore.Mvc.Contrib.Sample\serialization\**\*" target="serialization" />

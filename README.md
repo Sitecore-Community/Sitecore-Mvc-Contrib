@@ -46,7 +46,7 @@ Options for installation are:
 
     Note: Currently Sitecore.Nuget fails to find connections located within the <Local IIS Sites> folder. Ensure that your site exists as a direct child of Connections in the Sitecore Explorer.
 
-* Configure a Package source in Visual Studio to point to http://54.228.12.123:8080/nuget
+* Configure a Package source in Visual Studio to point to http://54.247.113.114:8080/nuget
 
 * From the Package Manager Console in Visual Studio execute one of the following command:
 

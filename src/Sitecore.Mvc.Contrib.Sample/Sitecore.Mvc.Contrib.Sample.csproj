@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sitecore.Mvc.Contrib.Sample</RootNamespace>
-    <AssemblyName>Sitecore.Mvc.Contrib.Sample</AssemblyName>
+    <AssemblyName>SitecoreMvcContrib.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
