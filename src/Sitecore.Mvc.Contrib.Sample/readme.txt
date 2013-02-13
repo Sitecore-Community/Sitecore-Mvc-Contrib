@@ -26,6 +26,10 @@ If the sample package failed to install check the following:
 
    Drag the website connection in the Sitecore.Explorer and move it so that it resides as a child of the Connections folder.
 
+*  Serialised items fail to install after you've checked everything else?
+
+   Update the Server Components for the Rocks connection to your website, i.e. reinstall the Sitecore.Rocks.Server component.
+
 *  Does your solution build fail to restore NuGet packages?
 
    Ensure that the Package Restore checkbox has been ticked in the NuGet Package Manager Options dialog.

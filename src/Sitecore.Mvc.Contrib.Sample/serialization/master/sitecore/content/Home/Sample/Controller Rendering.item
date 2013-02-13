@@ -19,7 +19,7 @@ content-length: 470
 ----version----
 language: en
 version: 1
-revision: 47a45a08-4444-43ef-a969-5d19a6ad25ca
+revision: 707305a7-270c-43d0-8f8a-bd5e6d825737
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -28,6 +28,52 @@ key: title
 content-length: 20
 
 Controller Rendering
+----field----
+field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
+name: Text
+key: text
+content-length: 2896
+
+<p>This is an example of a controller rendering. Simply create a rendering based on one of the templates below and add that rendering to the presentation controls for an item or on a template's standard values.</p>
+
+<ul>
+    <li><span class="text-info">/sitecore/templates/System/Layout/Renderings/Controller rendering</span></li>
+    <li><span class="text-info">/sitecore/templates/User Defined/MVC Contrib/Layout/Renderings/Controller rendering with validation</span></li>
+</ul>
+
+<h3>Validating Controller and Action Field Values</h3>
+
+<p>The contrib package includes a ControllerRenderingValidator which validates the Controller and Action fied values of items based on the `Controller rendering with validation` template.</p>
+
+<p>A Controller Rendering template contains fields for the Controller and the Controller Action. The Controller field can either specify the Controller name using <a href="http://www.simple-talk.com/dotnet/asp.net/asp.net-mvc-controllers-and-conventions/" target="_blank">convention</a>, that is without the “Controller” suffix or by entering the fully qualified path to the controller, eg. “Website.Controllers.SimpleController,AssemblyName”.</p>
+
+<p>If the controller rendering has been based on the <span class="text-info">/sitecore/templates/User Defined/MVC Contrib/Layout/Renderings/Controller rendering with validation</span> template then the controller and action fields will be validated by searching the website's bin directory for to ensure that the controller and method exist.</p>
+
+<p>The sample package has installed a controller rendering in your content tree, the path to this item is <span class="text-info">/sitecore/layout/Renderings/MVC Contrib/Content/Simple Controller Rendering</span></p>
+
+<p>Try editing the Controller and Controller Action fields and then running Validation from the Review chunk on the toolbar.</p>
+
+<h3>Using a Strongly Typed Model</h3>
+
+<p>The <span class="text-info">Website.Controllers.SimpleController</span> class generates a strongly typed model class, <span class="text-info">Sitecore.Mvc.Contrib.Sample.Model.SimpleViewModel</span>, which is passed to the view for rendering.</p>
+
+<p>The model class can be accessed within the view using razor syntax. The following code snippet demonstrates how the value of the <span class="text-info">Message</span> property on the <span class="text-info">Sitecore.Mvc.Contrib.Sample.Model.SimpleViewModel</span> class can be output in the view.</p>
+
+<pre>
+  
+@using Sitecore.Mvc
+@model Sitecore.Mvc.Contrib.Sample.Model.SimpleViewModel
+
+&lt;h2&gt;@Html.Sitecore().Field("Title")&lt;/h2&gt;
+
+@Html.Sitecore().Field("Text")
+  
+&lt;div class="alert alert-block alert-text"&gt;
+  &lt;button type="button" class="close" data-dismiss="alert"&gt;&times;&lt;/button&gt;
+  &lt;strong&gt;Info:&lt;/strong&gt; @Model.Message
+&lt;/div&gt;
+  
+</pre>
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
 name: __Owner
@@ -55,14 +101,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-47a45a08-4444-43ef-a969-5d19a6ad25ca
+707305a7-270c-43d0-8f8a-bd5e6d825737
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130212T162617:634962831776699882
+20130213T103037:634963482379755069
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
