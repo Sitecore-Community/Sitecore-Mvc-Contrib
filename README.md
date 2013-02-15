@@ -48,7 +48,7 @@ Options for installation are:
 
 * Configure a Package source in Visual Studio to point to http://54.247.113.114:8080/nuget
 
-* From the Package Manager Console in Visual Studio execute one of the following command:
+* From the Package Manager Console in Visual Studio execute one of the following commands:
 
     `Install-Package Sitecore.Mvc.Contrib`
 

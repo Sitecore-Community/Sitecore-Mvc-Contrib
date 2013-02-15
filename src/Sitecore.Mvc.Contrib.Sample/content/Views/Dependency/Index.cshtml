@@ -1,0 +1,16 @@
+﻿@using Sitecore.Mvc
+@model Sitecore.Mvc.Contrib.Sample.Model.SimpleViewModel
+
+<h2>@Html.Sitecore().Field("Title")</h2>
+
+@Html.Sitecore().Field("Text")
+
+@{
+    if (! Sitecore.Context.PageMode.IsPageEditor)
+    {
+        <div class="alert alert-block alert-text">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Info:</strong> @Model.Message
+        </div>
+    }
+}

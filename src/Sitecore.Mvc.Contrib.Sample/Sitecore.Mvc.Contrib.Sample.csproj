@@ -49,8 +49,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebActivator">
-      <HintPath>..\..\packages\WebActivator.1.5.3\lib\net40\WebActivator.dll</HintPath>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -62,10 +62,14 @@
     <None Include="content\Model\SimpleViewModel.cs" />
     <None Include="content\Areas\SampleArea\Controllers\SampleAreaController.cs" />
     <None Include="content\Areas\SampleArea\SampleAreaAreaRegistration.cs" />
+    <None Include="content\Controllers\DependencyController.cs" />
+    <None Include="content\Interfaces\IFooService.cs" />
+    <None Include="content\Services\ConcreteFooService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="content\App_Config\Include\Sitecore.Mvc.Contrib.config" />
+    <None Include="content\Views\Dependency\Index.cshtml" />
     <None Include="content\Views\HelloWorld\Index.cshtml" />
     <None Include="content\Views\Layouts\MainView.cshtml" />
     <None Include="content\Views\Renderings\Content\Sample View Rendering.cshtml" />
@@ -80,11 +84,12 @@
     <None Include="serialization\master\sitecore\content\Home\Sample.item" />
     <None Include="serialization\master\sitecore\content\Home\Sample\Area Controller Rendering.item" />
     <None Include="serialization\master\sitecore\content\Home\Sample\Controller Rendering.item" />
+    <None Include="serialization\master\sitecore\content\Home\Sample\Dependency Injection.item" />
     <None Include="serialization\master\sitecore\content\Mvc Sample.item" />
     <None Include="serialization\master\sitecore\layout\Layouts\MainView Layout.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content.item" />
-    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Area Controller Rendering.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\DI Controller Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample Area Controller.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample View Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Simple Controller Rendering.item" />

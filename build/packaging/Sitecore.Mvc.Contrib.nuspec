@@ -23,7 +23,7 @@
     <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
-
+  
     <file src="..\..\src\Sitecore.Mvc.Contrib\serialization\**\*" target="serialization" />
     <file src="..\..\src\Sitecore.Mvc.Contrib\tools\**\*" target="tools" />
   </files>

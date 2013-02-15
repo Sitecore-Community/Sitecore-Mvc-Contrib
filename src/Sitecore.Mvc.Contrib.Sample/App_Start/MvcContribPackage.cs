@@ -3,10 +3,10 @@ using System.Web.Routing;
 
 using Sitecore.Diagnostics;
 
-[assembly: WebActivator.PreApplicationStartMethod(
+[assembly: WebActivatorEx.PreApplicationStartMethod(
     typeof(Sitecore.Mvc.Contrib.Sample.App_Start.MvcContribPackage), "PreStart")]
 
-[assembly: WebActivator.PostApplicationStartMethod(
+[assembly: WebActivatorEx.PostApplicationStartMethod(
     typeof(Sitecore.Mvc.Contrib.Sample.App_Start.MvcContribPackage), "PostStart")]
 
 namespace Sitecore.Mvc.Contrib.Sample.App_Start

@@ -38,6 +38,7 @@ If the sample package failed to install check the following:
 To retry the package installation first clean up the previous installation attempt by running the following commands in the Package Manager Console:
 
     Uninstall-Package Sitecore.Mvc.Contrib.Sample
+    Uninstall-Package Sitecore.Mvc.Contrib.CastleWindsor
 	Uninstall-Package Sitecore.Mvc.Contrib
 
 
@@ -48,6 +49,7 @@ Uninstalling the Package
 The package can be uninstalled by running the following commands in the Package Manager Console:
 
     Uninstall-Package Sitecore.Mvc.Contrib.Sample
+    Uninstall-Package Sitecore.Mvc.Contrib.CastleWindsor
 	Uninstall-Package Sitecore.Mvc.Contrib
 
 

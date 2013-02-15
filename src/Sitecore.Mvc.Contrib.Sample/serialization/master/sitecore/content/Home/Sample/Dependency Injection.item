@@ -1,0 +1,224 @@
+----item----
+version: 1
+id: {A822B245-E510-4635-876A-371EC66B2B50}
+database: master
+path: /sitecore/content/Home/Sample/Dependency Injection
+parent: {B97C1116-4B23-4868-BB9B-5C880866CBE5}
+name: Dependency Injection
+master: {00000000-0000-0000-0000-000000000000}
+template: {62D738B9-774F-4AD7-B99B-122796F0C6C5}
+templatekey: Sample Item
+
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 558
+
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}">
+    <r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{E0D5ECBA-0FF1-4B01-9925-27CCEE8DC403}" />
+    <r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{573BE283-90EF-44FD-B9C6-E1B10C0A6CDB}" />
+    <r id="{7C0E675D-E5A9-4199-8809-9432A3CF192F}" ph="content" uid="{3C5D6368-2C94-4185-AA4D-246F5FADAA13}" />
+  </d>
+  <d id="{46D2F427-4CE5-4E1F-BA10-EF3636F43534}" />
+  <d id="{73966209-F1B6-43CA-853A-F1DB1C9A654B}" />
+</r>
+----version----
+language: en
+version: 1
+revision: 2a4a043c-930f-4aaf-81b6-ac0ef8af69ef
+
+----field----
+field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
+name: Title
+key: title
+content-length: 37
+
+Dependency Injection with Controllers
+----field----
+field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
+name: Text
+key: text
+content-length: 6232
+
+
+<h3>Background</h3>
+
+<p>Wikipedia describes dependency injection as follows:</p>
+
+<blockquote>
+  <p>Dependency injection is a software design pattern that allows removing hard-coded dependencies and making it possible to change them, whether at run-time or compile-time.</p>
+  </blockquote>
+
+<p>It goes on to explain that dependency injection can be used as a simple way to load plugins dynamically or to choose stubs or mock objects in test environments vs. real objects in production environments. This software design pattern injects the depended-on element (object or value etc) to the destination automatically by knowing the requirement of the destination.</p>
+
+<p>Our application design and it's degree of coupling will benefit considerably if we attempt to <span class="text-info">banish the “new” operator for instantiating services as much as possible</span>. In order to achieve this we need a mechanism for injecting services that we depend upon into our MVC controllers. That mechanism is implemented in the contrib project by providing a set of additional NuGet packages that provide support for several popular <abbr title="Inversion of Control">IoC</abbr> containers.</p>
+
+<h3>Containers Provided</h3>
+
+<p>The contrib package provides the following IoC containers for immediate use. Using one of these existing containers as a template it is a simple task to create a package for your favourite container if it's not already available. Don't forget to send in a pull request to the Sitecore.Mvc.Contrib project so that you can share the kudos of having provided a new containers with the rest of the community, full credit will be give to authors.</p>
+
+<table class="table table-bordered table-hover table-striped">
+  
+  <caption>Supported IoC Containers</caption>
+  <thead>
+    <tr>
+      <th>IoC Container</th>
+      <th>Contrib Package ID</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td>Castle.Windsor</td>
+      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+    </tr>
+    <!--
+    <tr>
+      <td>Castle.Windsor</td>
+      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+    </tr>
+    <tr>
+      <td>Castle.Windsor</td>
+      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+    </tr> -->
+  </tbody>
+  
+</table>
+
+<h3>Implementing an IoC Container</h3>
+
+<p>The IoC packages within the contrib project follow a common set of steps to provide to implement construction logic for MVC controllers.</p>
+
+<ul>
+  <li>Create a custom controller factory, and inherit from DefaultControllerFactory. For example, <span class="text-info">WindsorControllerFactory</span>.</li>
+  <li>In the custom controller factory override the <span class="text-info">GetControllerInstance</span> instance and make it resolve the requested controller type using the IoC container.</li>
+  <li>Create an activator class and configure it to be called from the <span class="text-info">WebActivatorEx.PreApplicationStartMethod</span>. Using <a href="https://github.com/davidebbo/WebActivator">WebActivator</a> allows application startup and shutdown to be introduced into a web application in a cleaner manner that simply dropping it into the global.asax file. Take a look at the <span class="text-info">CastleWindsorActivator</span> class to see how this is done.</li>
+  <li>Provide an implementation of the Configure method that works with the chosen IoC container. This method is where developers will provide their own custom registration code to configure the IoC container for their services and interfaces. The Castle.Windsor implementation of this class is in the <span class="text-info">IoC.cs.pp</span> file.</li>
+</ul>
+
+<h3>Constructor injection in a Controller</h3>
+
+<p>The <span class="text-info">DependencyController</span> employs constructor injection to indicate that it requires the services of a <span class="text-info">IFooService</span> to create the model object that is passed to the view. The custom controller factory will ensure that when the controller is created it is passed an instance of whatever type that has been registered as implementing that interface. In this way it it the custom controller factory's responsibility to resolve any dependencies that the controller may have, making the controller ignorant of this construction logic.</p>
+
+<pre>
+  
+using System.Web.Mvc;
+using Sitecore.Mvc.Controllers;
+using Website.Interfaces;
+
+namespace Website.Controllers
+{
+    public class DependencyController : SitecoreController
+    {
+        private readonly IFooService _fooService;
+
+        public DependencyController(IFooService fooService)
+        {
+            _fooService = fooService;
+        }
+
+        public override ActionResult Index()
+        {
+            var model = _fooService.BusinessLogicCall();
+            return View(model);
+        }
+    }
+}
+  
+</pre>
+
+<p>Where the implementation of IFooService looks like:</p>
+
+<pre>
+  
+using System;
+using Sitecore.Mvc.Contrib.Sample.Model;
+using Website.Interfaces;
+
+namespace Website.Services
+{
+    public class ConcreteFooService : IFooService
+    {
+        public SimpleViewModel BusinessLogicCall()
+        {
+            return new SimpleViewModel
+            {
+                Message = "Method was executed at: " + DateTime.Now.ToLongTimeString()
+            };
+        }
+    }
+}
+  
+</pre>
+
+<p>The type registration to make all of this work is setup in the IoC.Configure method.</p>
+
+<pre>
+  
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+
+namespace Website.App_Start.SitecoreMvcContrib
+{
+    public class IoC
+    {
+        public static void Configure(WindsorContainer container)
+        {
+            // Add your registration code here...
+
+               container.Register(
+                            Component.For&lt;Website.Interfaces.IFooService&gt;()
+                                .ImplementedBy&lt;Website.Services.ConcreteFooService&gt;()
+                                .LifestyleTransient()
+                            );
+        }
+    }
+}
+
+</pre>
+
+<p>This <span class="text-info">SimpleViewModel</span> instance is passed to the view and is rendered out to the visitor's browser.</p>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20130211T154720
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+2a4a043c-930f-4aaf-81b6-ac0ef8af69ef
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20130216T195455:634966412956383803
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
