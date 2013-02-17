@@ -135,6 +135,7 @@
     <Folder Include="content\Areas\SampleArea\Models\" />
     <Folder Include="content\Areas\SampleArea\Views\Shared\" />
     <Folder Include="content\Views\Renderings\Navigation\" />
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

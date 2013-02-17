@@ -1,6 +1,8 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 
+using sample = Website;
+
 namespace $rootnamespace$.App_Start.SitecoreMvcContrib
 {
     public class IoC
@@ -10,7 +12,7 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
             // Add your registration code here...
 
                container.Register(
-                            Component.For<Website.Interfaces.IFooService>().ImplementedBy<Website.Services.ConcreteFooService>().LifestyleTransient()
+                            Component.For<sample.Interfaces.IFooService>().ImplementedBy<sample.Services.ConcreteFooService>().LifestyleTransient()
                             );
         }
     }
