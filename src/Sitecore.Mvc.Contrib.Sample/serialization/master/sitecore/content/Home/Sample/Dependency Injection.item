@@ -27,7 +27,7 @@ content-length: 558
 ----version----
 language: en
 version: 1
-revision: 2a4a043c-930f-4aaf-81b6-ac0ef8af69ef
+revision: 287fecdb-ee31-4f17-b5b5-a56dc614426f
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -40,7 +40,7 @@ Dependency Injection with Controllers
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 6232
+content-length: 6154
 
 
 <h3>Background</h3>
@@ -71,18 +71,13 @@ content-length: 6232
   
   <tbody>
     <tr>
-      <td>Castle.Windsor</td>
-      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
-    </tr>
-    <!--
-    <tr>
-      <td>Castle.Windsor</td>
-      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+      <td>Autofac</td>
+      <td>Sitecore.Mvc.Contrib.Autofac</td>
     </tr>
     <tr>
       <td>Castle.Windsor</td>
       <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
-    </tr> -->
+    </tr>
   </tbody>
   
 </table>
@@ -92,11 +87,11 @@ content-length: 6232
 <p>The IoC packages within the contrib project follow a common set of steps to provide to implement construction logic for MVC controllers.</p>
 
 <ul>
-  <li>Create a custom controller factory, and inherit from DefaultControllerFactory. For example, <span class="text-info">WindsorControllerFactory</span>.</li>
-  <li>In the custom controller factory override the <span class="text-info">GetControllerInstance</span> instance and make it resolve the requested controller type using the IoC container.</li>
-  <li>Create an activator class and configure it to be called from the <span class="text-info">WebActivatorEx.PreApplicationStartMethod</span>. Using <a href="https://github.com/davidebbo/WebActivator">WebActivator</a> allows application startup and shutdown to be introduced into a web application in a cleaner manner that simply dropping it into the global.asax file. Take a look at the <span class="text-info">CastleWindsorActivator</span> class to see how this is done.</li>
-  <li>Provide an implementation of the Configure method that works with the chosen IoC container. This method is where developers will provide their own custom registration code to configure the IoC container for their services and interfaces. The Castle.Windsor implementation of this class is in the <span class="text-info">IoC.cs.pp</span> file.</li>
+  <li>Create an activator class and configure it to be called from the <span class="text-info">WebActivatorEx.PreApplicationStartMethod</span>. Using <a href="https://github.com/davidebbo/WebActivator">WebActivator</a> allows application startup and shutdown to be introduced into a web application in a cleaner manner that simply dropping it into the global.asax file. Take a look at the <span class="text-info">AutofacActivator</span> class to see how this is done.</li>
+  <li>Provide an implementation of the Configure method that works with the chosen IoC container. This method is where developers will provide their own custom registration code to configure the IoC container for their services and interfaces. The Autofac implementation of this class is in the <span class="text-info">IoC.cs.pp</span> file.</li>
 </ul>
+
+<p><span class="text-warning">Note:</span> The Castle Windsor implementation uses the older approach of creating a custom controller factory that inherits from DefaultControllerFactory. You can find this implementation in the <span class="text-info">WindsorControllerFactory</span> class. The reasoning behind this implementation choice can be found in the discussion on this Stack Overflow <a href="http://stackoverflow.com/questions/4140860/castle-windsor-dependency-resolver-for-mvc-3">post</a>.</p>
 
 <h3>Constructor injection in a Controller</h3>
 
@@ -157,22 +152,22 @@ namespace Website.Services
 
 <pre>
   
-using Castle.MicroKernel.Registration;
-using Castle.Windsor;
+using Autofac;
+using Autofac.Integration.Mvc;
 
-namespace Website.App_Start.SitecoreMvcContrib
+using sample = Website;
+
+namespace $rootnamespace$.App_Start.SitecoreMvcContrib
 {
-    public class IoC
+    public static class IoC
     {
-        public static void Configure(WindsorContainer container)
+        public static void Configure(ContainerBuilder builder)
         {
             // Add your registration code here...
 
-               container.Register(
-                            Component.For&lt;Website.Interfaces.IFooService&gt;()
-                                .ImplementedBy&lt;Website.Services.ConcreteFooService&gt;()
-                                .LifestyleTransient()
-                            );
+            builder.RegisterType&lt;sample.Services.ConcreteFooService&gt;()
+                   .As&lt;sample.Interfaces.IFooServicee&gt;()
+                   .InstancePerHttpRequest();
         }
     }
 }
@@ -207,14 +202,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-2a4a043c-930f-4aaf-81b6-ac0ef8af69ef
+287fecdb-ee31-4f17-b5b5-a56dc614426f
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130216T195455:634966412956383803
+20130218T111902:634967831427208779
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

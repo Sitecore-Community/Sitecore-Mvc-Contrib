@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5791FCD4-6691-4EA6-8E02-000AF1E707A4}</ProjectGuid>
+    <ProjectGuid>{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sitecore.Mvc.Contrib</RootNamespace>
-    <AssemblyName>SitecoreMvcContrib</AssemblyName>
+    <RootNamespace>Sitecore.Mvc.Contrib.Autofac</RootNamespace>
+    <AssemblyName>SitecoreMvcContribAutofac</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +23,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -34,15 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\packages\Autofac.Mvc3.2.6.3.862\lib\NET40\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Sitecore.Kernel">
-      <HintPath>..\..\lib\Sitecore.Kernel.dll</HintPath>
-    </Reference>
-    <Reference Include="Sitecore.Mvc">
-      <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -76,53 +78,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Common\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\Common\CommonVersionInfo.cs">
-      <Link>Properties\CommonVersionInfo.cs</Link>
-    </Compile>
-    <Compile Include="AreaRouteData.cs" />
-    <Compile Include="Constants.cs" />
-    <Compile Include="Controllers\AreaControllerRunner.cs" />
-    <Compile Include="Data\ControllerRenderingValidator.cs" />
-    <Compile Include="Extensions\ItemExtensions.cs" />
-    <Compile Include="Pipelines\MvcEvents\InjectViewInPlaceholderFilter.cs" />
-    <Compile Include="Pipelines\Response\GetRenderer\AreaController.cs" />
-    <Compile Include="Presentation\Renderer\AreaControllerRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReflectionUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
-      <Project>{8DA484D1-06D3-4749-8275-C9B3346C2584}</Project>
-      <Name>Sitecore.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="tools\Sitecore.NuGet.1.0.dll" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Content\App_Start\AutofacActivator.cs.pp" />
+    <None Include="Content\App_Start\IoC.cs.pp" />
     <None Include="packages.config" />
-    <None Include="serialization\master\sitecore\system\Settings\Validation Rules\Item Rules\MVC.item" />
-    <None Include="serialization\master\sitecore\system\Settings\Validation Rules\Item Rules\MVC\Controller Rendering Validator.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller\Data.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller\Data\Area.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout\Renderings.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout\Renderings\Controller rendering with validation.item" />
-    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout\Renderings\Controller rendering with validation\__Standard Values.item" />
-    <None Include="tools\init.ps1" />
-    <None Include="tools\install.ps1" />
-    <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="serialization\master\sitecore\layout\" />
+    <ProjectReference Include="..\Sitecore.Mvc.Contrib\Sitecore.Mvc.Contrib.csproj">
+      <Project>{5791FCD4-6691-4EA6-8E02-000AF1E707A4}</Project>
+      <Name>Sitecore.Mvc.Contrib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

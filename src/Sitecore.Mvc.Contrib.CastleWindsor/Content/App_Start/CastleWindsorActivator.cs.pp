@@ -1,9 +1,6 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
+﻿using Castle.Windsor;
 
-using Castle.Windsor;
-
+using Sitecore.Mvc.Contrib;
 using Sitecore.Mvc.Contrib.CastleWindsor;
 
 using ControllerBuilder = System.Web.Mvc.ControllerBuilder;
@@ -13,13 +10,17 @@ using ControllerBuilder = System.Web.Mvc.ControllerBuilder;
 
 namespace $rootnamespace$.App_Start.SitecoreMvcContrib
 {
+    /// <remarks>
+    /// It seems that a traditional controller factory implementation is the best approach for Windsor and MVC3.
+    /// Ref. http://stackoverflow.com/questions/4140860/castle-windsor-dependency-resolver-for-mvc-3
+    /// </remarks>>
     public static class CastleWindsorActivator
     {
         public static void PreStart() {
 
             var container = new WindsorContainer();
 
-            var assembly = GetAssemblyFromName("$AssemblyName$");
+            var assembly = ReflectionUtil.GetAssemblyFromName("$AssemblyName$");
 
 			if (assembly != null)
 			{
@@ -29,11 +30,6 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
             IoC.Configure(container);
 
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container.Kernel));
-        }
-
-        private static Assembly GetAssemblyFromName(string assemblyName)
-        {
-            return AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(x => x.GetName().Name == assemblyName);
         }
     }
 }
