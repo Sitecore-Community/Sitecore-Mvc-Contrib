@@ -27,7 +27,7 @@ content-length: 558
 ----version----
 language: en
 version: 1
-revision: 287fecdb-ee31-4f17-b5b5-a56dc614426f
+revision: b6e09a86-f2bf-4a47-b0e7-6f79a6edd684
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -40,7 +40,7 @@ Dependency Injection with Controllers
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 6154
+content-length: 6254
 
 
 <h3>Background</h3>
@@ -77,6 +77,10 @@ content-length: 6154
     <tr>
       <td>Castle.Windsor</td>
       <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+    </tr>
+    <tr>
+      <td>StructureMap</td>
+      <td>Sitecore.Mvc.Contrib.StructureMap</td>
     </tr>
   </tbody>
   
@@ -202,14 +206,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-287fecdb-ee31-4f17-b5b5-a56dc614426f
+b6e09a86-f2bf-4a47-b0e7-6f79a6edd684
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130218T111902:634967831427208779
+20130227T151111:634975746715188672
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

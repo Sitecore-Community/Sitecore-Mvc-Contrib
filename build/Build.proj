@@ -134,6 +134,9 @@
         Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.CastleWindsor.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
 
     <Exec
+  Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.StructureMap.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
+    
+    <Exec
       Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.Sample.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
   </Target>
   
