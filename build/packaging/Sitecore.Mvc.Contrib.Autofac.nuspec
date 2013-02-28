@@ -10,12 +10,11 @@
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This project contains IoC frameworking classes to setup Autofac to work with the Sitecore MVC Contrib assemblies.</description>
-    <releaseNotes>This is a pre-release version of the package.</releaseNotes>
+    <releaseNotes>This is a pre-release version of the package. Removed dependency on Sitecore.Mvc.Contrib package.</releaseNotes>
     <copyright>Copyright (C) by Sitecore A/S</copyright>
     <tags>Sitecore CMS MVC Contrib Autofac IOC</tags>
     <language>en-GB</language>
     <dependencies>
-      <dependency id="Sitecore.Mvc.Contrib" version="0.1.0" />
       <dependency id="WebActivatorEx" version="2.0.1" />
       <dependency id="Autofac.Mvc3" version="2.6.3.862" />
     </dependencies>

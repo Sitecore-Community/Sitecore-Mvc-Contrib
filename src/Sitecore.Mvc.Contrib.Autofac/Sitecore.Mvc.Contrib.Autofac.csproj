@@ -90,12 +90,6 @@
     <None Include="Content\App_Start\IoC.cs.pp" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sitecore.Mvc.Contrib\Sitecore.Mvc.Contrib.csproj">
-      <Project>{5791FCD4-6691-4EA6-8E02-000AF1E707A4}</Project>
-      <Name>Sitecore.Mvc.Contrib</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
