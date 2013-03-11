@@ -11,9 +11,9 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
         {
             // Add your registration code here...
 
-               container.Register(
-                            Component.For<sample.Interfaces.IFooService>().ImplementedBy<sample.Services.ConcreteFooService>().LifestyleTransient()
-                            );
+            // container.Register(
+            //              Component.For<sample.Interfaces.IFooService>().ImplementedBy<sample.Services.ConcreteFooService>().LifestyleTransient()
+            //              );
         }
     }
 }

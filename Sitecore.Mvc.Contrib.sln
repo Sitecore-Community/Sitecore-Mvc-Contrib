@@ -36,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packaging", "packaging", "{
 	ProjectSection(SolutionItems) = preProject
 		build\packaging\Sitecore.Mvc.Contrib.Autofac.nuspec = build\packaging\Sitecore.Mvc.Contrib.Autofac.nuspec
 		build\packaging\Sitecore.Mvc.Contrib.CastleWindsor.nuspec = build\packaging\Sitecore.Mvc.Contrib.CastleWindsor.nuspec
+		build\packaging\Sitecore.Mvc.Contrib.Ninject.nuspec = build\packaging\Sitecore.Mvc.Contrib.Ninject.nuspec
 		build\packaging\Sitecore.Mvc.Contrib.nuspec = build\packaging\Sitecore.Mvc.Contrib.nuspec
 		build\packaging\Sitecore.Mvc.Contrib.Sample.nuspec = build\packaging\Sitecore.Mvc.Contrib.Sample.nuspec
 		build\packaging\Sitecore.Mvc.Contrib.StructureMap.nuspec = build\packaging\Sitecore.Mvc.Contrib.StructureMap.nuspec
@@ -55,6 +56,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Mvc.Contrib.StructureMap", "src\Sitecore.Mvc.Contrib.StructureMap\Sitecore.Mvc.Contrib.StructureMap.csproj", "{F8C9B1B3-F1E4-4AC6-99A7-23B1779E3577}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Mvc.Contrib.Autofac", "src\Sitecore.Mvc.Contrib.Autofac\Sitecore.Mvc.Contrib.Autofac.csproj", "{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sitecore.Mvc.Contrib.Ninject", "src\Sitecore.Mvc.Contrib.Ninject\Sitecore.Mvc.Contrib.Ninject.csproj", "{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -136,6 +139,16 @@ Global
 		{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +160,7 @@ Global
 		{E934CC51-A949-4AD1-A4CC-CECA447EC7F0} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
 		{F8C9B1B3-F1E4-4AC6-99A7-23B1779E3577} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
 		{D2A2A95F-B31F-4757-8EF4-44BE78ECE3D0} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
+		{BDA8D2C9-6B39-4BF1-BFA0-31ABB106205A} = {F0717179-F14B-4667-8D5A-5980EC935F0F}
 		{05F4023A-A4F6-4844-8175-8D7E04C63913} = {33043060-6D33-4018-9F77-A36E70771C93}
 		{923D9377-9025-425B-9698-1A38947CA973} = {2A29E5BC-9DE1-4299-AFD9-86F1CC77B921}
 		{EA6E7E5D-C6B4-480E-BAD6-B8EB8EB805F4} = {923D9377-9025-425B-9698-1A38947CA973}

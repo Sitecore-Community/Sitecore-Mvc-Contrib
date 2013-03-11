@@ -129,9 +129,12 @@
 
     <Exec
         Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.Autofac.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
-    
+
     <Exec
         Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.CastleWindsor.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
+
+    <Exec
+        Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.Ninject.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />    
 
     <Exec
   Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.StructureMap.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />

@@ -11,9 +11,9 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
         {
             // Add your registration code here...
             
-            container
-                .ForGenericType<sample.Interfaces.IFooService>()
-                .GetInstanceAs<sample.Services.ConcreteFooService>();
+            // container
+            //     .ForGenericType<sample.Interfaces.IFooService>()
+            //     .GetInstanceAs<sample.Services.ConcreteFooService>();
         }
     }
 }

@@ -22,7 +22,9 @@
   <files>
     <file src="..\..\artifacts\Build\SitecoreMvcContribCastleWindsor.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContribCastleWindsor.pdb" target="lib\net40" />
-
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
+    
     <file src="..\..\src\Sitecore.Mvc.Contrib.CastleWindsor\content\**\*" target="content" />    
   </files>
 </package>

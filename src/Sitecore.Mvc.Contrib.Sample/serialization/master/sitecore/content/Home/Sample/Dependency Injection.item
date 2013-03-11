@@ -27,7 +27,7 @@ content-length: 558
 ----version----
 language: en
 version: 1
-revision: b6e09a86-f2bf-4a47-b0e7-6f79a6edd684
+revision: 4c7ba63f-78e1-4a8f-9f7f-210e9fa8b381
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -40,7 +40,7 @@ Dependency Injection with Controllers
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 6254
+content-length: 7013
 
 
 <h3>Background</h3>
@@ -77,6 +77,10 @@ content-length: 6254
     <tr>
       <td>Castle.Windsor</td>
       <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+    </tr>
+    <tr>
+      <td>Ninject</td>
+      <td>Sitecore.Mvc.Contrib.Ninject</td>
     </tr>
     <tr>
       <td>StructureMap</td>
@@ -117,7 +121,19 @@ namespace Website.Controllers
         {
             _fooService = fooService;
         }
-
+  
+        public DependencyController() : this(new Website.Services.ConcreteFooService()) 
+        {
+            // Poor mans DI
+            //
+            // Register the construction logic for building an IFooService in the IoC.Configure method using your chosen DI container and 
+            // then comment out parameterless constructor DependencyController and allow the DI container take care of creating these controller 
+            // dependencies for you.
+            //
+            // Autofac is installed with the Sample project by default. NuGet packages have been provided for a range of other DI options 
+            // including Ninject, Structure Map and Castle Windsor.
+        }
+  
         public override ActionResult Index()
         {
             var model = _fooService.BusinessLogicCall();
@@ -152,7 +168,7 @@ namespace Website.Services
   
 </pre>
 
-<p>The type registration to make all of this work is setup in the IoC.Configure method.</p>
+<p>The type registration needed to make all of this work gets setup in the IoC.Configure method.</p>
 
 <pre>
   
@@ -167,8 +183,6 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
     {
         public static void Configure(ContainerBuilder builder)
         {
-            // Add your registration code here...
-
             builder.RegisterType&lt;sample.Services.ConcreteFooService&gt;()
                    .As&lt;sample.Interfaces.IFooServicee&gt;()
                    .InstancePerHttpRequest();
@@ -206,14 +220,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-b6e09a86-f2bf-4a47-b0e7-6f79a6edd684
+4c7ba63f-78e1-4a8f-9f7f-210e9fa8b381
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130227T151111:634975746715188672
+20130312T105513:634986825133010351
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

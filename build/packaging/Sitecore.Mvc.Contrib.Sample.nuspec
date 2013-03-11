@@ -16,7 +16,7 @@
     <language>en-GB</language>
     <dependencies>
       <dependency id="Sitecore.Mvc.Contrib" version="0.1.2" />
-      <dependency id="Sitecore.Mvc.Contrib.Autofac" version="0.1.2" />
+      <dependency id="Sitecore.Mvc.Contrib.Autofac" version="0.1.3" />
       <dependency id="WebActivatorEx" version="2.0.1" />
     </dependencies>
   </metadata>

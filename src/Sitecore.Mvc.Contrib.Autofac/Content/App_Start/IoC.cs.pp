@@ -11,9 +11,9 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
         {
             // Add your registration code here...
 
-            builder.RegisterType<sample.Services.ConcreteFooService>()
-                   .As<sample.Interfaces.IFooService>()
-                   .InstancePerHttpRequest();
+            // builder.RegisterType<sample.Services.ConcreteFooService>()
+            //        .As<sample.Interfaces.IFooService>()
+            //        .InstancePerHttpRequest();
         }
     }
 }

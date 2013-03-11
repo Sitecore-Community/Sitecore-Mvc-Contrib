@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Sitecore.Mvc.Contrib.StructureMap</id>
+    <id>Sitecore.Mvc.Contrib.Ninject</id>
     <version>0.0.0</version>
     <authors>Kevin Obee</authors>
     <owners>kevinobee</owners>
@@ -9,22 +9,22 @@
     <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>This project contains IoC frameworking classes to setup Structure Map to work with the Sitecore MVC Contrib assemblies.</description>
+    <description>This project contains IoC frameworking classes to setup Ninject to work with the Sitecore MVC Contrib assemblies.</description>
     <releaseNotes>This is a pre-release version of the package. Removed dependency on Sitecore.Mvc.Contrib package.</releaseNotes>
     <copyright>Copyright (C) by Sitecore A/S</copyright>
-    <tags>Sitecore CMS MVC Contrib Castle Windsor IOC</tags>
+    <tags>Sitecore CMS MVC Contrib Ninject IOC</tags>
     <language>en-GB</language>
     <dependencies>
       <dependency id="WebActivatorEx" version="2.0.1" />
-      <dependency id="structuremap" version="2.6.4.1" />
+      <dependency id="Ninject" version="3.0.1.10" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.pdb" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
     
-    <file src="..\..\src\Sitecore.Mvc.Contrib.StructureMap\content\**\*" target="content" />    
+    <file src="..\..\src\Sitecore.Mvc.Contrib.Ninject\content\**\*" target="content" />    
   </files>
 </package>
