@@ -2,9 +2,8 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Sitecore.Mvc.Contrib
+namespace Sitecore.Mvc.Contrib.Reflection
 {
-    [Obsolete("Use Sitecore.Mvc.Contrib.Reflection.ReflectionUtil")]
     public static class ReflectionUtil
     {
         public static Assembly GetAssemblyFromName(string assemblyName)

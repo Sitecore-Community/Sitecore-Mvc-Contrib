@@ -19,6 +19,11 @@ namespace Sitecore.Mvc.Contrib
         public class Templates
         {
             public static ID AreaController { get { return new ID("{16B2D343-B679-47F3-939E-60D184B632A5}"); } }
+
+//            public static ID ControllerRendering { get { return new ID("{2A3E91A0-7987-44B5-AB34-35C2D9DE83B9}"); } }
+
+            public static ID ControllerRenderingWithValidation { get { return new ID("{EF42883B-1D1D-40A6-8FE8-3FB85DE5B73B}"); } }
+            
         }
     }
 }

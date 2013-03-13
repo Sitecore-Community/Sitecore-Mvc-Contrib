@@ -87,13 +87,24 @@
     <Compile Include="AreaRouteData.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AreaControllerRunner.cs" />
-    <Compile Include="Data\ControllerRenderingValidator.cs" />
+    <Compile Include="Data\Validators\TestableStandardValidator.cs" />
+    <Compile Include="Data\Validators\ControllerValidator.cs" />
+    <Compile Include="Data\Validators\IControllerValidator.cs" />
+    <Compile Include="Reflection\AssemblyTypeFinder.cs" />
+    <Compile Include="Data\Validators\ControllerRenderingValidator.cs" />
+    <Compile Include="Caching\ICache.cs" />
+    <Compile Include="Reflection\CachedTypeFinder.cs" />
+    <Compile Include="Caching\CacheValues.cs" />
+    <Compile Include="Reflection\ITypeFinder.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Pipelines\MvcEvents\InjectViewInPlaceholderFilter.cs" />
     <Compile Include="Pipelines\Response\GetRenderer\AreaController.cs" />
     <Compile Include="Presentation\Renderer\AreaControllerRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReflectionUtil.cs" />
+    <Compile Include="Reflection\ReflectionUtil.cs" />
+    <Compile Include="Caching\WebCacheAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
