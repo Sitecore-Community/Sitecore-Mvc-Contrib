@@ -19,9 +19,12 @@
     <OutputXmlFile>$(TestResultsPath)\TestResults.xml</OutputXmlFile>
     <ToolsPath>$(ProjectRoot)\tools</ToolsPath>
     <NunitPath>$(ToolsPath)\nunit</NunitPath>
+    <CourierPath>$(ToolsPath)\Sitecore.Courier\</CourierPath>
   </PropertyGroup>
 
   <UsingTask AssemblyFile="$(ToolsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.dll" TaskName="MSBuild.Community.Tasks.NUnit" />
+
+  <UsingTask AssemblyFile="$(CourierPath)\MSBuild.Sitecore.Courier.dll" TaskName="MSBuild.Sitecore.Courier.Tasks.SitecoreCourier" />
   
   <PropertyGroup>
     <!-- Build number is of the format (CurrentYear - VersionStartYear + 1)(2 digit month)(2 digit day) -->
@@ -116,13 +119,34 @@
     <Message Text="##teamcity[importData type='nunit' path='$(OutputXmlFile)']" />    
   </Target>          
   
-  <Target Name="RunTests" DependsOnTargets="RunUnitTests; "> <!-- Add other test types as depends here -->
+  <Target Name="RunTests" DependsOnTargets="RunUnitTests; ">
   </Target>
 
-  <Target Name="StdPackage">
-<!--    <CreateItem Include="$(PackagingPath)\*.nuspec">-->
-<!--      <Output TaskParameter="Include" ItemName="NuspecFile" />-->
-<!--    </CreateItem>-->
+
+  <Target Name="SitecorePackage">
+    <PropertyGroup>
+      <PackageSourcePath>$(PackageResultsPath)\Source</PackageSourcePath>
+      <SitecoreMvcContribTarget>$([System.IO.Path]::GetFullPath('$(ProjectRoot)\src\Sitecore.Mvc.Contrib\serialization'))</SitecoreMvcContribTarget>
+      <SitecoreMvcContribSampleTarget>$([System.IO.Path]::GetFullPath('$(ProjectRoot)\src\Sitecore.Mvc.Contrib.Sample\serialization'))</SitecoreMvcContribSampleTarget>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(PackageSourcePath)" Condition="!Exists('$(PackageSourcePath)')" />
+
+    <SitecoreCourier
+      ToolPath = "$(CourierPath)"
+      SourceDirectory = "$(PackageSourcePath)"
+      TargetDirectory = "$(SitecoreMvcContribTarget)"
+      OutputUpdateFile = "$(PackageResultsPath)\Sitecore.Mvc.Contrib.$(PackageVersion).update" />
+    
+    <SitecoreCourier
+      ToolPath = "$(CourierPath)"
+      SourceDirectory = "$(PackageSourcePath)"
+      TargetDirectory = "$(SitecoreMvcContribSampleTarget)"
+      OutputUpdateFile = "$(PackageResultsPath)\Sitecore.Mvc.Contrib.Sample.$(PackageVersion).update" />
+    
+  </Target>
+  
+  <Target Name="StdPackage" DependsOnTargets="SitecorePackage">
 
     <Exec 
         Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
@@ -148,5 +172,6 @@
 
   <Target Name="GoCI" DependsOnTargets="UpdateVersion; CopyLibs; Build">
   </Target>
+
   
 </Project>
