@@ -23,7 +23,7 @@ namespace Sitecore.Mvc.Contrib.Data.Validators
 
         public ControllerRenderingValidator() 
             : this(new ControllerValidator(new CachedTypeFinder(new WebCacheAdapter(), "Sitecore Controllers", new AssemblyTypeFinder())), 
-                   new LogWrapper())  // TODO poor man's DI
+                   new LogWrapper())  // Poor man's DI
         {
         }
 
@@ -74,6 +74,16 @@ namespace Sitecore.Mvc.Contrib.Data.Validators
         public override string Name
         {
             get { return "ControllerRenderingValidator"; }
+        }
+
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            // Dev. Note: [Serializable] will raise a CA2240 code analysis warning.
+            //            To fix a violation of this rule, make the GetObjectData method visible and overridable and make sure all 
+            //            instance fields are included in the serialization process or explicitly marked with the 
+            //            NonSerializedAttributeattribute.
+
+            base.GetObjectData(info, context);
         }
     }
 }

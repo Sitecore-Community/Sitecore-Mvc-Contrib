@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using Sitecore.Diagnostics;
 using Sitecore.Mvc.Contrib.Reflection;
 using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Helpers;
@@ -65,7 +64,6 @@ namespace Sitecore.Mvc.Contrib.Data.Validators
         {
             if (!TypeLookupsByControllerFullName.ContainsKey(assemblyQualifiedFullName))
             {
-                Log.Info(string.Format("Attempting to load {0}", assemblyQualifiedFullName), this);  // TODO remove
                 lock (SyncObject)
                 {
                     var type = GetTypeFromAssemblyByFullName(assemblyQualifiedFullName);
