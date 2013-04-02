@@ -41,3 +41,6 @@ lib/Telerik.Web.UI.dll
 # Build ignores
 /msbuild.log
 /artifacts
+
+#Document ignores
+docs/license/*.docx

@@ -5,13 +5,13 @@
     <version>0.0.0</version>
     <authors>Mike Edwards, Kevin Obee</authors>
     <owners>kevinobee</owners>
-    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>-->
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>This project contains IoC frameworking classes to setup Castle Windsor to work with the Sitecore MVC Contrib assemblies.</description>
     <releaseNotes>This is a pre-release version of the package. Removed dependency on Sitecore.Mvc.Contrib package.</releaseNotes>
-    <copyright>Copyright (C) by Sitecore A/S</copyright>
+    <copyright>Copyright 2013 Sitecore Corporation A/S</copyright>
     <tags>Sitecore CMS MVC Contrib Castle Windsor IOC</tags>
     <language>en-GB</language>
     <dependencies>
