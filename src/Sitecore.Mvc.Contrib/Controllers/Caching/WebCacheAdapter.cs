@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //-----------------------------------------------------------------------------------------------------------------------
 //
 // Copyright 2013 Sitecore Corporation A/S
@@ -14,19 +13,26 @@
 // 
 //-----------------------------------------------------------------------------------------------------------------------
 
-using System.Web.Routing;
-=======
-﻿using System.Web.Routing;
->>>>>>> Line endings
+using System;
 
-namespace Sitecore.Mvc.Contrib.Controllers
+namespace Sitecore.Mvc.Contrib.Caching
 {
-    public interface IRegisterRoutes
+    public sealed class WebCacheAdapter : ICache
     {
-        void InstallRoutes(RouteCollection routes);
+        private readonly System.Web.Caching.Cache _cache;
+
+        public WebCacheAdapter()
+        {
+            if (System.Web.HttpContext.Current != null)
+                _cache = System.Web.HttpContext.Current.Cache;
+            else
+                throw new ArgumentNullException("No HttpContext, unable to use the web cache");
+        }
+
+        object ICache.this[string fieldName]
+        {
+            get { return _cache[fieldName]; }
+            set { _cache[fieldName] = value; }
+        }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Line endings

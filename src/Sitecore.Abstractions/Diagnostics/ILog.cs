@@ -24,6 +24,6 @@
         void Warn(string message, System.Exception exception, object owner);
         void Warn(string message, object owner);
         bool Enabled { get; }
-        // TODO ... Sitecore.Caching.Cache Singles { get; }
+        // Not implemented ... Sitecore.Caching.Cache Singles { get; }
     }
 }

@@ -17,7 +17,7 @@
 using System;
 =======
 ﻿using System;
->>>>>>> Line edings
+>>>>>>> Line endings
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -118,4 +118,4 @@ namespace Sitecore.Mvc.Contrib.Extensions
 }
 =======
 }
->>>>>>> Line edings
+>>>>>>> Line endings

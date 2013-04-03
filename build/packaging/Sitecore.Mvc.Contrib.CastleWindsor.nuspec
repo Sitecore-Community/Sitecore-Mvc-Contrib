@@ -6,7 +6,7 @@
     <authors>Mike Edwards, Kevin Obee</authors>
     <owners>kevinobee</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/Sitecore/Sitecore-Mvc-Contrib</projectUrl>
+    <projectUrl>https://github.com/Sitecore-Community/Sitecore-Mvc-Contrib</projectUrl>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>This project contains IoC frameworking classes to setup Castle Windsor to work with the Sitecore MVC Contrib assemblies.</description>

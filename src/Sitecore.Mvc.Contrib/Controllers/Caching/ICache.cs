@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //-----------------------------------------------------------------------------------------------------------------------
 //
 // Copyright 2013 Sitecore Corporation A/S
@@ -14,19 +13,10 @@
 // 
 //-----------------------------------------------------------------------------------------------------------------------
 
-using System.Web.Routing;
-=======
-﻿using System.Web.Routing;
->>>>>>> Line endings
-
-namespace Sitecore.Mvc.Contrib.Controllers
+namespace Sitecore.Mvc.Contrib.Caching
 {
-    public interface IRegisterRoutes
+    public interface ICache
     {
-        void InstallRoutes(RouteCollection routes);
+        object this[string fieldName] { get; set; }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Line endings

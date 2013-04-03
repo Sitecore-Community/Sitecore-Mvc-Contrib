@@ -19,7 +19,7 @@ content-length: 470
 ----version----
 language: en
 version: 1
-revision: 134fe86b-d7d4-4009-af8b-4e7733c59790
+revision: dbe4baee-db92-4dd6-b789-b9db85218c45
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -32,7 +32,7 @@ Sitecore MVC Contrib Project
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 1904
+content-length: 1914
 
 <h3>Overview</h3>
 <p>The Sitecore.Mvc.Contrib project aims to extend the base MVC functionality introduced in Sitecore 6.6, providing a set of common classes and helpers that you may need while using Sitecore MVC.</p>
@@ -41,7 +41,7 @@ content-length: 1904
 
 <h3>Using or Contributing to the Project</h3>
 
-<p>The source code for the project is available on <a href="https://github.com/Sitecore/Sitecore-Mvc-Contrib">GitHub</a> and can be installed directly from the <a href="http://54.247.113.114:8080/nuget">Sitecore NuGet server</a> using the Visual Studio Package Manager Console.</p>
+<p>The source code for the project is available on <a href="https://github.com/Sitecore-Community/Sitecore-Mvc-Contrib">GitHub</a> and can be installed directly from the <a href="http://54.247.113.114:8080/nuget">Sitecore NuGet server</a> using the Visual Studio Package Manager Console.</p>
 <p>The latest builds are <a href="http://54.247.113.114:9111">available</a> on our TeamCity continuous integration server where you can access using a guest login.</p>
 
 
@@ -83,14 +83,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-134fe86b-d7d4-4009-af8b-4e7733c59790
+dbe4baee-db92-4dd6-b789-b9db85218c45
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130213T120025:634963536259586819
+20130404T134340:635006798207901918
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //-----------------------------------------------------------------------------------------------------------------------
 //
 // Copyright 2013 Sitecore Corporation A/S
@@ -14,19 +13,23 @@
 // 
 //-----------------------------------------------------------------------------------------------------------------------
 
-using System.Web.Routing;
-=======
-﻿using System.Web.Routing;
->>>>>>> Line endings
-
-namespace Sitecore.Mvc.Contrib.Controllers
+namespace Sitecore.Mvc.Contrib.Caching
 {
-    public interface IRegisterRoutes
+    public class CacheValues<T>
     {
-        void InstallRoutes(RouteCollection routes);
+        private readonly ICache _cache;
+        private readonly string _fieldNameBase;
+
+        public CacheValues(ICache cache, string fieldNameBase)
+        {
+            _cache = cache;
+            _fieldNameBase = fieldNameBase;
+        }
+
+        public T this[string field]
+        {
+            get { return (T) _cache[_fieldNameBase + field]; }
+            set { _cache[_fieldNameBase + field] = value; }
+        }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> Line endings
