@@ -2,7 +2,7 @@
 
 # Sitecore.Mvc.Contrib
 
-This project extends the basse MVC functionality introduced in Sitecore 6.6, providing a set of common classes and helpers that you may need while using Sitecore MVC.
+This project extends the base MVC functionality introduced in Sitecore 6.6, providing a set of common classes and helpers that you may need while using Sitecore MVC.
 
 
 ## Requirements
@@ -20,7 +20,7 @@ This project extends the basse MVC functionality introduced in Sitecore 6.6, pro
 
 ## Building
 
-* Place your `Sitecore.Kernel.dll`, `Sitecore.Mvc.dll` and the `Sitecore.Logging.dll` assmeblies in the `\lib` directory.
+* Place your `Sitecore.Kernel.dll`, `Sitecore.Mvc.dll` and the `Sitecore.Logging.dll` assmeblies in the `\lib` directory. For more details refer to the [README.md](/lib/README.md) file in the lib folder.
 
 * Run `.\build`  from the root of the checkout folder to invoke an automated debug build of the project. The outputs from this automated build are detailed in the build folder [README.md](/build/README.md) file.
 
