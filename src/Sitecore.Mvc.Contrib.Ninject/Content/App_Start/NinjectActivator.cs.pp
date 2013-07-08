@@ -4,11 +4,12 @@ using Ninject;
 
 using Sitecore.Mvc.Contrib;
 using Sitecore.Mvc.Contrib.Ninject;
+using Sitecore.Mvc.Contrib.Reflection;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
     typeof($rootnamespace$.App_Start.SitecoreMvcContrib.NinjectActivator), "PreStart")]
 
-namespace $rootnamespace$.App_Start.SitecoreMvcContrib
+namespace $rootnamespace$.App_Start
 {
     public static class NinjectActivator
     {

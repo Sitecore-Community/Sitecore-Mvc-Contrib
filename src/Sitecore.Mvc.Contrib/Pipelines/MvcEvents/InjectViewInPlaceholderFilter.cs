@@ -62,6 +62,8 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
 
             if (viewResult == null) return;
 
+            if (filterContext.HttpContext.Items["injectorHasRun"] != null) return;
+
             var placeholder = filterContext.RouteData.Values["scPlaceholder"] as string;
 
             if (IsMissingPresentationValues(placeholder)) return;
@@ -133,6 +135,8 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
 
             if (placeholder != null)
             {
+                controllerContext.HttpContext.Items["injectorHasRun"] = true;
+
                 var contentRendering = new ContentRendering
                                            {
                                                Id = Guid.NewGuid(),

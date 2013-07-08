@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -28,6 +29,7 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
         private Mock<IView> _view;
         private ViewResult _viewResult;
         private ViewEngineResult _viewEngineResult;
+        private Dictionary<string, object> _itemsDictionary;
 
         [SetUp]
         public void SetUp()
@@ -42,6 +44,8 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
 
             _httpContext = new Mock<HttpContextBase>();
             _httpContext.SetupAllProperties();
+            _itemsDictionary = new Dictionary<string, object>();
+            _httpContext.SetupGet(x => x.Items).Returns(_itemsDictionary);
 
             _controller = new Mock<Controller>();
             _controller.SetupAllProperties();
@@ -238,11 +242,45 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
             Assert.That(_pageContext.Object.PageDefinition.Renderings.Count, Is.EqualTo(1));
         }
 
+        [Test]
+        public void InjectorRunsOnceToNotBeReentrant()
+        {
+            // GitHub Issue #1
+
+            // Arrange
+            var args = ResultExecutingArgsBuilder(_viewResult);
+            args.Context.RouteData.Values["scPlaceholder"] = "main";
+            args.Context.RouteData.Values["action"] = "MyView";
+
+            _pageContext
+                .SetupGet(x => x.Item)
+                .Returns(new TestItem());
+
+            _pageContext
+                .SetupGet(x => x.Device)
+                .Returns(new Device(Guid.NewGuid()));
+
+            _viewEngine
+                .Setup(x => x.FindPartialView(It.IsAny<ControllerContext>(), It.IsAny<string>(), It.IsAny<bool>()))
+                .Returns(_viewEngineResult);
+
+            _filter.Process(args);
+
+            // Act
+            _filter.Process(args);
+
+            // Assert
+            Assert.That(_pageContext.Object.PageDefinition.Renderings.Count, Is.EqualTo(1));
+        }
+
+
         private ResultExecutingArgs ResultExecutingArgsBuilder(ViewResult viewResult)
         {
             var resultExecutingContext = new ResultExecutingContext(_controller.Object.ControllerContext, viewResult);
             var args = new ResultExecutingArgs(resultExecutingContext);
             return args;
+
+
         }
     }
 }

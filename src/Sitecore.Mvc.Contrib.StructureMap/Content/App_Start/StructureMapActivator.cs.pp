@@ -7,7 +7,7 @@ using StructureMap;
 [assembly: WebActivatorEx.PreApplicationStartMethod(
     typeof($rootnamespace$.App_Start.SitecoreMvcContrib.StructureMapActivator), "PreStart")]
 
-namespace $rootnamespace$.App_Start.SitecoreMvcContrib
+namespace $rootnamespace$.App_Start
 {
     public static class StructureMapActivator
     {

@@ -2,13 +2,14 @@
 
 using Sitecore.Mvc.Contrib;
 using Sitecore.Mvc.Contrib.CastleWindsor;
+using Sitecore.Mvc.Contrib.Reflection;
 
 using ControllerBuilder = System.Web.Mvc.ControllerBuilder;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
     typeof($rootnamespace$.App_Start.SitecoreMvcContrib.CastleWindsorActivator), "PreStart")]
 
-namespace $rootnamespace$.App_Start.SitecoreMvcContrib
+namespace $rootnamespace$.App_Start
 {
     /// <remarks>
     /// It seems that a traditional controller factory implementation is the best approach for Windsor and MVC3.

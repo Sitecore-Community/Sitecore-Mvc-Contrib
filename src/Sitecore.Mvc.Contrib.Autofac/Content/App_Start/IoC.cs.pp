@@ -3,7 +3,7 @@ using Autofac.Integration.Mvc;
 
 using sample = Website;
 
-namespace $rootnamespace$.App_Start.SitecoreMvcContrib
+namespace $rootnamespace$.App_Start
 {
     public static class IoC
     {

@@ -3,12 +3,12 @@
 using Autofac;
 using Autofac.Integration.Mvc;
 
-using Sitecore.Mvc.Contrib;
+using Sitecore.Mvc.Contrib.Reflection;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
     typeof($rootnamespace$.App_Start.SitecoreMvcContrib.AutofacActivator), "PreStart")]
 
-namespace $rootnamespace$.App_Start.SitecoreMvcContrib
+namespace $rootnamespace$.App_Start
 {
     public static class AutofacActivator
     {

@@ -2,11 +2,11 @@
 <Project ToolsVersion="4.0" DefaultTargets="Go" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildProjectDirectory)\Build.tasks" />
   <Import Project="$(MSBuildProjectDirectory)\Sitecore.Mvc.Contrib.versions.targets" />
+  <Import Project="$(MSBuildProjectDirectory)\Sitecore.Mvc.Contrib.environment.props" Condition="Exists('$(MSBuildProjectDirectory)\Sitecore.Mvc.Contrib.environment.props')" />
   
   <PropertyGroup>
     <Configuration Condition="$(Configuration) == ''">Release</Configuration>
     <ProjectRoot>$(MSBuildProjectDirectory)\..</ProjectRoot>
-    <LibsSrcPath>D:\LibsSrc</LibsSrcPath>
     <LibsDestPath>$(ProjectRoot)\lib</LibsDestPath>
     <PackagingPath>$(MSBuildProjectDirectory)\packaging</PackagingPath>
     <ArtifactsPath>$(ProjectRoot)\artifacts</ArtifactsPath>
@@ -22,6 +22,11 @@
     <CourierPath>$(ToolsPath)\Sitecore.Courier\</CourierPath>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <!-- Provide defaults for values spoecified in Sitecore.Mvc.Contrib.versions.props -->
+    <LibsSrcPath Condition="'$(LibsSrcPath)' == ''">C:\LibsSrc</LibsSrcPath>
+  </PropertyGroup>
+  
   <UsingTask AssemblyFile="$(ToolsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.dll" TaskName="MSBuild.Community.Tasks.NUnit" />
 
   <UsingTask AssemblyFile="$(CourierPath)\MSBuild.Sitecore.Courier.dll" TaskName="MSBuild.Sitecore.Courier.Tasks.SitecoreCourier" />
