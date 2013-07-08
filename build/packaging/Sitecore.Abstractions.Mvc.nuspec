@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Sitecore.Mvc.Contrib</id>
+    <id>Sitecore.Abstractions.Mvc</id>
     <version>0.0.0</version>
     <authors>Mike Edwards, Kern Herskind, Kevin Buckley, Kevin Obee, Stephen Pope</authors>
     <owners>kevinobee</owners>
@@ -9,24 +9,22 @@
     <projectUrl>https://github.com/Sitecore-Community/Sitecore-Mvc-Contrib</projectUrl>
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <description>This project contains a set of common classes and helpers you may need while using Sitecore MVC</description>
-    <releaseNotes>
+    <description>This project contains a set of abstraction interfaces and classes that make it easier to unit test Sitecore MVC implementations</description>
+    <!--<releaseNotes>
 * 1.0.0 Initial release of package
 * 1.0.1 Bug fixes for injector filter
-        Sitecore.Abstractions.Mvc nuget package
-    </releaseNotes>
+    </releaseNotes>-->
     <copyright>Copyright 2013 Sitecore Corporation A/S</copyright>
-    <tags>Sitecore CMS MVC Contrib</tags>
+    <tags>Sitecore MVC TDD</tags>
     <language>en-GB</language>
     <dependencies>
-      <dependency id="Sitecore.Abstractions.Mvc" />
+      <dependency id="Microsoft.AspNet.Mvc" version="3.0.20105.1" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
-  
-    <file src="..\..\src\Sitecore.Mvc.Contrib\serialization\**\*" target="serialization" />
-    <file src="..\..\src\Sitecore.Mvc.Contrib\tools\**\*" target="tools" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractionsMvc.dll" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractionsMvc.pdb" target="lib\net40" />
   </files>
 </package>

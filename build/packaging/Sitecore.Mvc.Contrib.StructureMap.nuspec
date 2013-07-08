@@ -17,13 +17,12 @@
     <dependencies>
       <dependency id="WebActivatorEx" version="2.0.1" />
       <dependency id="structuremap" version="2.6.4.1" />
+      <dependency id="Sitecore.Mvc.Contrib" />
     </dependencies>
   </metadata>
   <files>
     <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
     
     <file src="..\..\src\Sitecore.Mvc.Contrib.StructureMap\content\**\*" target="content" />    
   </files>
