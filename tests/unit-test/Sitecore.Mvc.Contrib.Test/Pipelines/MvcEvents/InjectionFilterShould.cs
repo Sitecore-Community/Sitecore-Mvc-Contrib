@@ -30,6 +30,7 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
         private ViewResult _viewResult;
         private ViewEngineResult _viewEngineResult;
         private Dictionary<string, object> _itemsDictionary;
+        private Mock<HttpRequestBase> _httpRequest;
 
         [SetUp]
         public void SetUp()
@@ -42,10 +43,15 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
 
             _filter = new InjectViewInPlaceholderFilter(_logger.Object) { PageContext = _pageContext.Object };
 
+            _httpRequest = new Mock<HttpRequestBase>();
+            _httpRequest.SetupGet(r => r["X-Requested-With"]).Returns(default(string)); 
+            
             _httpContext = new Mock<HttpContextBase>();
             _httpContext.SetupAllProperties();
             _itemsDictionary = new Dictionary<string, object>();
             _httpContext.SetupGet(x => x.Items).Returns(_itemsDictionary);
+
+            _httpContext.SetupGet(x => x.Request).Returns(_httpRequest.Object);
 
             _controller = new Mock<Controller>();
             _controller.SetupAllProperties();
@@ -245,7 +251,7 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
         [Test]
         public void InjectorRunsOnceToNotBeReentrant()
         {
-            // GitHub Issue #1
+            // GitHub Issue : InjectViewInPlaceholderFilter causes HTTP 503 issues
 
             // Arrange
             var args = ResultExecutingArgsBuilder(_viewResult);
@@ -273,14 +279,46 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.MvcEvents
             Assert.That(_pageContext.Object.PageDefinition.Renderings.Count, Is.EqualTo(1));
         }
 
+        [Test]
+        public void ProcessShouldIgnoreAjaxRequests()
+        {
+            // GitHub Issue : InjectViewInPlaceholderFilter responds to Ajax requests
+
+            // Arrange
+            var args = ResultExecutingArgsBuilder(_viewResult);
+            args.Context.RouteData.Values["scPlaceholder"] = "main";
+            args.Context.RouteData.Values["action"] = "MyView";
+
+            _pageContext
+                .SetupGet(x => x.Item)
+                .Returns(new TestItem());
+
+            _pageContext
+                .SetupGet(x => x.Device)
+                .Returns(new Device(Guid.NewGuid()));
+
+            _viewEngine
+                .Setup(x => x.FindPartialView(It.IsAny<ControllerContext>(), It.IsAny<string>(), It.IsAny<bool>()))
+                .Returns(_viewEngineResult);
+
+
+//            var httpRequest = new Mock<HttpRequestBase>();
+//            httpRequest.SetupAllProperties();
+            _httpRequest.SetupGet(r => r["X-Requested-With"]).Returns("XMLHttpRequest");
+//            _httpContext.SetupGet(x => x.Request).Returns(httpRequest.Object);
+
+            // Act
+            _filter.Process(args);
+
+            // Assert
+            Assert.That(_pageContext.Object.PageDefinition.Renderings.Count, Is.EqualTo(0), "Ajax request was not ignored, rendering was added to the page definition");
+        }
 
         private ResultExecutingArgs ResultExecutingArgsBuilder(ViewResult viewResult)
         {
             var resultExecutingContext = new ResultExecutingContext(_controller.Object.ControllerContext, viewResult);
             var args = new ResultExecutingArgs(resultExecutingContext);
             return args;
-
-
         }
     }
 }

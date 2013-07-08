@@ -58,9 +58,14 @@ namespace Sitecore.Mvc.Contrib.Pipelines.MvcEvents
             _logger.Info("Process called on InjectViewInPlaceholderFilter", this);
 
             var filterContext = args.Context;
+
+            if (filterContext == null) return;
+
             var viewResult = filterContext.Result as ViewResult;
 
             if (viewResult == null) return;
+
+            if (filterContext.HttpContext.Request.IsAjaxRequest()) return;
 
             if (filterContext.HttpContext.Items["injectorHasRun"] != null) return;
 

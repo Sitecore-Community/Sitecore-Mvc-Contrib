@@ -10,7 +10,10 @@
     <iconUrl>http://www.sitecore.net/favicon.ico</iconUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>This project contains a set of common classes and helpers you may need while using Sitecore MVC</description>
-    <releaseNotes>This is a pre-release version of the package.</releaseNotes>
+    <releaseNotes>
+* 1.0.0 Initial release of package
+* 1.0.1 Bug fixes for injector filter
+    </releaseNotes>
     <copyright>Copyright 2013 Sitecore Corporation A/S</copyright>
     <tags>Sitecore CMS MVC Contrib</tags>
     <language>en-GB</language>
