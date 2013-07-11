@@ -7,7 +7,7 @@ using Sitecore.Mvc.Contrib.Ninject;
 using Sitecore.Mvc.Contrib.Reflection;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
-    typeof($rootnamespace$.App_Start.SitecoreMvcContrib.NinjectActivator), "PreStart")]
+    typeof($rootnamespace$.App_Start.NinjectActivator), "PreStart")]
 
 namespace $rootnamespace$.App_Start
 {

@@ -7,7 +7,7 @@ using Sitecore.Mvc.Contrib.Reflection;
 using ControllerBuilder = System.Web.Mvc.ControllerBuilder;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
-    typeof($rootnamespace$.App_Start.SitecoreMvcContrib.CastleWindsorActivator), "PreStart")]
+    typeof($rootnamespace$.App_Start.CastleWindsorActivator), "PreStart")]
 
 namespace $rootnamespace$.App_Start
 {

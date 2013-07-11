@@ -6,7 +6,7 @@ using Autofac.Integration.Mvc;
 using Sitecore.Mvc.Contrib.Reflection;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
-    typeof($rootnamespace$.App_Start.SitecoreMvcContrib.AutofacActivator), "PreStart")]
+    typeof($rootnamespace$.App_Start.AutofacActivator), "PreStart")]
 
 namespace $rootnamespace$.App_Start
 {
