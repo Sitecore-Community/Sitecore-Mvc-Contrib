@@ -153,6 +153,9 @@
   
   <Target Name="StdPackage" DependsOnTargets="SitecorePackage">
 
+    <Exec
+        Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Abstractions.Mvc.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
+    
     <Exec 
         Command="$(NuGetExePath) pack $(PackagingPath)\Sitecore.Mvc.Contrib.nuspec -Verbosity detailed -Version $(PackageVersion) -OutputDirectory $(PackageResultsPath)" />
 
@@ -177,6 +180,5 @@
 
   <Target Name="GoCI" DependsOnTargets="UpdateVersion; CopyLibs; Build">
   </Target>
-
   
 </Project>

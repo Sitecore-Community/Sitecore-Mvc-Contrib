@@ -17,13 +17,12 @@
     <dependencies>
       <dependency id="WebActivatorEx" version="2.0.1" />
       <dependency id="Castle.Windsor" version="3.1.0" />
+      <dependency id="Sitecore.Mvc.Contrib" />
     </dependencies>
   </metadata>
   <files>
     <file src="..\..\artifacts\Build\SitecoreMvcContribCastleWindsor.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContribCastleWindsor.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
     
     <file src="..\..\src\Sitecore.Mvc.Contrib.CastleWindsor\content\**\*" target="content" />    
   </files>

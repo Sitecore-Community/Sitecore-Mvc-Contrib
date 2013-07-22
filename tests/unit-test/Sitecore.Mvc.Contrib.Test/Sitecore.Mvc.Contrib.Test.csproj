@@ -74,8 +74,12 @@
     <Compile Include="TestItem.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\Sitecore.Abstractions.Mvc\Sitecore.Abstractions.Mvc.csproj">
+      <Project>{7a09e74b-e59c-4300-913c-b961eca56d70}</Project>
+      <Name>Sitecore.Abstractions.Mvc</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\src\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
-      <Project>{8DA484D1-06D3-4749-8275-C9B3346C2584}</Project>
+      <Project>{8da484d1-06d3-4749-8275-c9b3346c2584}</Project>
       <Name>Sitecore.Abstractions</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\src\Sitecore.Mvc.Contrib\Sitecore.Mvc.Contrib.csproj">

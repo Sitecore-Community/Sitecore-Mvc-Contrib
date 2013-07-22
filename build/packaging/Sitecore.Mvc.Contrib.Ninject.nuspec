@@ -17,13 +17,12 @@
     <dependencies>
       <dependency id="WebActivatorEx" version="2.0.1" />
       <dependency id="Ninject" version="3.0.1.10" />
+      <dependency id="Sitecore.Mvc.Contrib" />
     </dependencies>
   </metadata>
   <files>
     <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.dll" target="lib\net40" />
     <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
     
     <file src="..\..\src\Sitecore.Mvc.Contrib.Ninject\content\**\*" target="content" />    
   </files>
