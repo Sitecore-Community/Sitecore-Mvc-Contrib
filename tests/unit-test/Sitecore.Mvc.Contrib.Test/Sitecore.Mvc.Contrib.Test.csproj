@@ -64,6 +64,7 @@
     <Compile Include="..\..\..\src\Common\CommonVersionInfo.cs">
       <Link>Properties\CommonVersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Controllers\AreaControllerRunnerTests.cs" />
     <Compile Include="Data\Validators\ControllerRenderingValidatorShould.cs" />
     <Compile Include="Data\Validators\ControllerValidatorShould.cs" />
     <Compile Include="GlobalSuppressions.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Presentation\Renderer\AreaControllerRendererShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestItem.cs" />
+    <Compile Include="Utils\HttpContextHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Sitecore.Abstractions\Sitecore.Abstractions.csproj">

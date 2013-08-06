@@ -104,8 +104,12 @@
     <Compile Include="Globalization\TranslateWrapper.cs" />
     <Compile Include="Mvc\Controllers\ControllerRunnerWrapper.cs" />
     <Compile Include="Mvc\Controllers\IControllerRunner.cs" />
+    <Compile Include="Mvc\IRouteData.cs" />
     <Compile Include="Mvc\Presentation\IPageContext.cs" />
+    <Compile Include="Mvc\Presentation\IViewContextProvider.cs" />
     <Compile Include="Mvc\Presentation\PageContextWrapper.cs" />
+    <Compile Include="Mvc\Presentation\ViewContextProvider.cs" />
+    <Compile Include="Mvc\RouteDataWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
