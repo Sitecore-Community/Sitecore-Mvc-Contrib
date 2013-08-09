@@ -87,9 +87,14 @@
     <Compile Include="AreaRouteData.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AreaControllerRunner.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Data\Validators\TestableStandardValidator.cs" />
     <Compile Include="Data\Validators\ControllerValidator.cs" />
     <Compile Include="Data\Validators\IControllerValidator.cs" />
+    <Compile Include="Presentation\IRenderingItemProvider.cs" />
+    <Compile Include="Presentation\IRenderingProvider.cs" />
+    <Compile Include="Presentation\PresentationRenderingProvider.cs" />
+    <Compile Include="Presentation\RenderingItemProvider.cs" />
     <Compile Include="Reflection\AssemblyTypeFinder.cs" />
     <Compile Include="Data\Validators\ControllerRenderingValidator.cs" />
     <Compile Include="Controllers\Caching\ICache.cs" />

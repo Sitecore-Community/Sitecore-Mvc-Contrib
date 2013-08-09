@@ -92,6 +92,8 @@
     <Compile Include="..\Common\CommonVersionInfo.cs">
       <Link>Properties\CommonVersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Data\DatabaseWrapper.cs" />
+    <Compile Include="Data\IDatabase.cs" />
     <Compile Include="Data\Items\IItem.cs" />
     <Compile Include="Data\Items\IBaseItem.cs" />
     <Compile Include="Data\Items\ICustomItemBase.cs" />
@@ -105,7 +107,11 @@
     <Compile Include="Mvc\Controllers\ControllerRunnerWrapper.cs" />
     <Compile Include="Mvc\Controllers\IControllerRunner.cs" />
     <Compile Include="Mvc\Presentation\IPageContext.cs" />
+    <Compile Include="Mvc\Presentation\IRendering.cs" />
+    <Compile Include="Mvc\Presentation\IRenderingContext.cs" />
     <Compile Include="Mvc\Presentation\PageContextWrapper.cs" />
+    <Compile Include="Mvc\Presentation\RenderingContextWrapper.cs" />
+    <Compile Include="Mvc\Presentation\RenderingWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

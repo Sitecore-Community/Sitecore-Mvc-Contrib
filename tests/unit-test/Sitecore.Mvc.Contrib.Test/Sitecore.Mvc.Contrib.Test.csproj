@@ -64,11 +64,13 @@
     <Compile Include="..\..\..\src\Common\CommonVersionInfo.cs">
       <Link>Properties\CommonVersionInfo.cs</Link>
     </Compile>
+    <Compile Include="Controllers\ControllerBaseShould.cs" />
     <Compile Include="Data\Validators\ControllerRenderingValidatorShould.cs" />
     <Compile Include="Data\Validators\ControllerValidatorShould.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Pipelines\MvcEvents\InjectionFilterShould.cs" />
     <Compile Include="Pipelines\Response\GetRenderer\AreaControllerShould.cs" />
+    <Compile Include="Presentation\RenderingItemProviderShould.cs" />
     <Compile Include="Presentation\Renderer\AreaControllerRendererShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestItem.cs" />
