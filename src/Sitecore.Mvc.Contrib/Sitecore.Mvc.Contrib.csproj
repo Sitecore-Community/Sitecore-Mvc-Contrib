@@ -90,6 +90,8 @@
     <Compile Include="Data\Validators\TestableStandardValidator.cs" />
     <Compile Include="Data\Validators\ControllerValidator.cs" />
     <Compile Include="Data\Validators\IControllerValidator.cs" />
+    <Compile Include="Pipelines\Response\GetRenderer\GetChildActionRenderer.cs" />
+    <Compile Include="Presentation\Renderer\ChildActionRenderer.cs" />
     <Compile Include="Reflection\AssemblyTypeFinder.cs" />
     <Compile Include="Data\Validators\ControllerRenderingValidator.cs" />
     <Compile Include="Controllers\Caching\ICache.cs" />
