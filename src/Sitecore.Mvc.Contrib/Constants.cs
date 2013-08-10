@@ -22,6 +22,8 @@ namespace Sitecore.Mvc.Contrib
 
 //            public static ID ControllerRendering { get { return new ID("{2A3E91A0-7987-44B5-AB34-35C2D9DE83B9}"); } }
 
+            public static ID ChildActionRendering { get { return new ID("{E71C57FF-4752-4CB7-811E-489388A3EC9A}"); } }
+
             public static ID ControllerRenderingWithValidation { get { return new ID("{EF42883B-1D1D-40A6-8FE8-3FB85DE5B73B}"); } }
             
         }

@@ -1,0 +1,65 @@
+----item----
+version: 1
+id: {E71C57FF-4752-4CB7-811E-489388A3EC9A}
+database: master
+path: /sitecore/templates/User Defined/MVC Contrib/Layout/Renderings/ChildAction rendering
+parent: {F899AEA8-00C0-4112-A862-F80310891D95}
+name: ChildAction rendering
+master: {00000000-0000-0000-0000-000000000000}
+template: {AB86861A-6030-46C5-B394-E8F99E8B87DB}
+templatekey: Template
+
+----field----
+field: {12C33F3F-86C5-43A5-AEB4-5598CEC45116}
+name: __Base template
+key: __base template
+content-length: 38
+
+{2A3E91A0-7987-44B5-AB34-35C2D9DE83B9}
+----field----
+field: {06D5295C-ED2F-4A54-9BF2-26228D113318}
+name: __Icon
+key: __icon
+content-length: 28
+
+People/32x32/potion_blue.png
+----version----
+language: en
+version: 1
+revision: 7b8a40d7-7015-49af-b73e-94e2ef31b909
+
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20130810T111318
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+7b8a40d7-7015-49af-b73e-94e2ef31b909
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20130810T111838:635117303184018671
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin
