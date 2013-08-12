@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.Web.Mvc;
 using Sitecore.Data;
 using Sitecore.Data.Items;
 using Sitecore.Mvc.Contrib.Presentation;
@@ -6,7 +7,7 @@ using Sitecore.Mvc.Presentation;
 
 namespace Sitecore.Mvc.Contrib.Controllers
 {
-    public abstract class ControllerBase
+    public abstract class ControllerBase : Controller
     {
         private readonly IRenderingItemProvider _renderingItemProvider;
 
@@ -16,7 +17,7 @@ namespace Sitecore.Mvc.Contrib.Controllers
         }
 
         protected ControllerBase() // Poor mans DI
-            : this(new RenderingItemProvider(new PresentationRenderingProvider(), new DatabaseWrapper(Sitecore.Context.Database), Sitecore.Context.Item))
+            : this(new RenderingItemProvider(new PresentationRenderingProvider(), new DatabaseWrapper(Context.Database), Context.Item))
         {
         }
 

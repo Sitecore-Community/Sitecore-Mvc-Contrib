@@ -36,6 +36,10 @@
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Sitecore.Kernel, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Sitecore.Mvc.Contrib\bin\Debug\Sitecore.Kernel.dll</HintPath>
+    </Reference>
     <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
@@ -81,6 +85,7 @@
     <None Include="content\Views\Renderings\Content\Sample View Rendering.cshtml" />
     <None Include="content\Views\Renderings\Layout\Sample Inner View.cshtml" />
     <None Include="content\Views\Renderings\Layout\Sample View.cshtml" />
+    <None Include="content\Views\Renderings\Navigation\ChildItems.cshtml" />
     <None Include="content\Views\Shared\Error.cshtml" />
     <None Include="content\Views\Shared\_Layout.cshtml" />
     <None Include="content\Views\Simple\Index.cshtml" />
@@ -96,6 +101,7 @@
     <None Include="serialization\master\sitecore\layout\Layouts\MainView Layout.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content.item" />
+    <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Child Items Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\DI Controller Rendering.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample Area Controller.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib\Content\Sample View Rendering.item" />
@@ -141,7 +147,6 @@
   <ItemGroup>
     <Folder Include="content\Areas\SampleArea\Models\" />
     <Folder Include="content\Areas\SampleArea\Views\Shared\" />
-    <Folder Include="content\Views\Renderings\Navigation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

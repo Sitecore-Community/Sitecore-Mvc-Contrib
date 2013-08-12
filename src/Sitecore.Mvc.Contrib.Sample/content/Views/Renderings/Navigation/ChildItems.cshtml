@@ -1,0 +1,14 @@
+﻿@model RenderingModel
+@using Sitecore.Mvc.Presentation
+
+
+<ul class="nav nav-list">
+    @foreach (var childItem in Model.Item.Children.ToArray())
+    {
+        var link = Sitecore.Links.LinkManager.GetItemUrl(childItem);
+        
+        <li><a href="@link">@childItem.Name</a></li>
+    }
+    
+     <li><a href="/hello/">View Injector</a></li>
+</ul>

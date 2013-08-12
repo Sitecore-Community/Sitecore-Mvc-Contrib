@@ -7,10 +7,10 @@ using Sitecore.Mvc.Controllers;
 
 namespace Website.Controllers
 {
-    public class HelloWorldController : SitecoreController
+    public class HelloWorldController : Sitecore.Mvc.Contrib.Controllers.ControllerBase
     {
         // Override is necessary as SitecoreController provides an Index action method. Alernatively use the ActionNameAttribute
-        public override ActionResult Index()
+        public ActionResult Index()
         {
             ViewBag.Title = "Injected View in Placeholder";
             return View();

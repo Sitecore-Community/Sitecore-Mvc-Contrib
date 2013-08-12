@@ -27,7 +27,7 @@ content-length: 558
 ----version----
 language: en
 version: 1
-revision: 4c7ba63f-78e1-4a8f-9f7f-210e9fa8b381
+revision: beed4343-880c-4981-bba4-8630dab893d7
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -40,80 +40,61 @@ Dependency Injection with Controllers
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 7013
-
+content-length: 6982
 
 <h3>Background</h3>
-
 <p>Wikipedia describes dependency injection as follows:</p>
-
 <blockquote>
-  <p>Dependency injection is a software design pattern that allows removing hard-coded dependencies and making it possible to change them, whether at run-time or compile-time.</p>
-  </blockquote>
-
+<p>Dependency injection is a software design pattern that allows removing hard-coded dependencies and making it possible to change them, whether at run-time or compile-time.</p>
+</blockquote>
 <p>It goes on to explain that dependency injection can be used as a simple way to load plugins dynamically or to choose stubs or mock objects in test environments vs. real objects in production environments. This software design pattern injects the depended-on element (object or value etc) to the destination automatically by knowing the requirement of the destination.</p>
-
-<p>Our application design and it's degree of coupling will benefit considerably if we attempt to <span class="text-info">banish the “new” operator for instantiating services as much as possible</span>. In order to achieve this we need a mechanism for injecting services that we depend upon into our MVC controllers. That mechanism is implemented in the contrib project by providing a set of additional NuGet packages that provide support for several popular <abbr title="Inversion of Control">IoC</abbr> containers.</p>
-
+<p>Our application design and it's degree of coupling will benefit considerably if we attempt to <span class="text-info">banish the &ldquo;new&rdquo; operator for instantiating services as much as possible</span>. In order to achieve this we need a mechanism for injecting services that we depend upon into our MVC controllers. That mechanism is implemented in the contrib project by providing a set of additional NuGet packages that provide support for several popular <abbr title="Inversion of Control">IoC</abbr> containers.</p>
 <h3>Containers Provided</h3>
-
 <p>The contrib package provides the following IoC containers for immediate use. Using one of these existing containers as a template it is a simple task to create a package for your favourite container if it's not already available. Don't forget to send in a pull request to the Sitecore.Mvc.Contrib project so that you can share the kudos of having provided a new containers with the rest of the community, full credit will be give to authors.</p>
-
 <table class="table table-bordered table-hover table-striped">
-  
-  <caption>Supported IoC Containers</caption>
-  <thead>
-    <tr>
-      <th>IoC Container</th>
-      <th>Contrib Package ID</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <tr>
-      <td>Autofac</td>
-      <td>Sitecore.Mvc.Contrib.Autofac</td>
-    </tr>
-    <tr>
-      <td>Castle.Windsor</td>
-      <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
-    </tr>
-    <tr>
-      <td>Ninject</td>
-      <td>Sitecore.Mvc.Contrib.Ninject</td>
-    </tr>
-    <tr>
-      <td>StructureMap</td>
-      <td>Sitecore.Mvc.Contrib.StructureMap</td>
-    </tr>
-  </tbody>
-  
+    <caption>Supported IoC Containers</caption>
+    <thead>
+        <tr>
+            <th>IoC Container</th>
+            <th>Contrib Package ID</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Autofac</td>
+            <td>Sitecore.Mvc.Contrib.Autofac</td>
+        </tr>
+        <tr>
+            <td>Castle.Windsor</td>
+            <td>Sitecore.Mvc.Contrib.CastleWindsor</td>
+        </tr>
+        <tr>
+            <td>Ninject</td>
+            <td>Sitecore.Mvc.Contrib.Ninject</td>
+        </tr>
+        <tr>
+            <td>StructureMap</td>
+            <td>Sitecore.Mvc.Contrib.StructureMap</td>
+        </tr>
+    </tbody>
 </table>
-
 <h3>Implementing an IoC Container</h3>
-
 <p>The IoC packages within the contrib project follow a common set of steps to provide to implement construction logic for MVC controllers.</p>
-
 <ul>
-  <li>Create an activator class and configure it to be called from the <span class="text-info">WebActivatorEx.PreApplicationStartMethod</span>. Using <a href="https://github.com/davidebbo/WebActivator">WebActivator</a> allows application startup and shutdown to be introduced into a web application in a cleaner manner that simply dropping it into the global.asax file. Take a look at the <span class="text-info">AutofacActivator</span> class to see how this is done.</li>
-  <li>Provide an implementation of the Configure method that works with the chosen IoC container. This method is where developers will provide their own custom registration code to configure the IoC container for their services and interfaces. The Autofac implementation of this class is in the <span class="text-info">IoC.cs.pp</span> file.</li>
+    <li>Create an activator class and configure it to be called from the <span class="text-info">WebActivatorEx.PreApplicationStartMethod</span>. Using <a href="https://github.com/davidebbo/WebActivator">WebActivator</a> allows application startup and shutdown to be introduced into a web application in a cleaner manner that simply dropping it into the global.asax file. Take a look at the <span class="text-info">AutofacActivator</span> class to see how this is done.</li>
+    <li>Provide an implementation of the Configure method that works with the chosen IoC container. This method is where developers will provide their own custom registration code to configure the IoC container for their services and interfaces. The Autofac implementation of this class is in the <span class="text-info">IoC.cs.pp</span> file.</li>
 </ul>
-
 <p><span class="text-warning">Note:</span> The Castle Windsor implementation uses the older approach of creating a custom controller factory that inherits from DefaultControllerFactory. You can find this implementation in the <span class="text-info">WindsorControllerFactory</span> class. The reasoning behind this implementation choice can be found in the discussion on this Stack Overflow <a href="http://stackoverflow.com/questions/4140860/castle-windsor-dependency-resolver-for-mvc-3">post</a>.</p>
-
 <h3>Constructor injection in a Controller</h3>
-
 <p>The <span class="text-info">DependencyController</span> employs constructor injection to indicate that it requires the services of a <span class="text-info">IFooService</span> to create the model object that is passed to the view. The custom controller factory will ensure that when the controller is created it is passed an instance of whatever type that has been registered as implementing that interface. In this way it it the custom controller factory's responsibility to resolve any dependencies that the controller may have, making the controller ignorant of this construction logic.</p>
-
-<pre>
-  
+<pre>  
 using System.Web.Mvc;
 using Sitecore.Mvc.Controllers;
 using Website.Interfaces;
 
 namespace Website.Controllers
 {
-    public class DependencyController : SitecoreController
+    public class DependencyController : Sitecore.Mvc.Contrib.Controllers.ControllerBase
     {
         private readonly IFooService _fooService;
 
@@ -143,11 +124,8 @@ namespace Website.Controllers
 }
   
 </pre>
-
 <p>Where the implementation of IFooService looks like:</p>
-
-<pre>
-  
+<pre>  
 using System;
 using Sitecore.Mvc.Contrib.Sample.Model;
 using Website.Interfaces;
@@ -167,11 +145,8 @@ namespace Website.Services
 }
   
 </pre>
-
 <p>The type registration needed to make all of this work gets setup in the IoC.Configure method.</p>
-
-<pre>
-  
+<pre>  
 using Autofac;
 using Autofac.Integration.Mvc;
 
@@ -191,7 +166,6 @@ namespace $rootnamespace$.App_Start.SitecoreMvcContrib
 }
 
 </pre>
-
 <p>This <span class="text-info">SimpleViewModel</span> instance is passed to the view and is rendered out to the visitor's browser.</p>
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -220,14 +194,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-4c7ba63f-78e1-4a8f-9f7f-210e9fa8b381
+beed4343-880c-4981-bba4-8630dab893d7
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130312T105513:634986825133010351
+20130812T171539:635119245399783864
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by

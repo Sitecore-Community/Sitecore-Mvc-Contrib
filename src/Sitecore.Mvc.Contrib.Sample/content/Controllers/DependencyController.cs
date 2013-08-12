@@ -6,7 +6,7 @@ using Website.Interfaces;
 
 namespace Website.Controllers
 {
-    public class DependencyController : SitecoreController
+    public class DependencyController : Sitecore.Mvc.Contrib.Controllers.ControllerBase
     {
         private readonly IFooService _fooService;
 
@@ -27,7 +27,7 @@ namespace Website.Controllers
             // including Ninject, Structure Map and Castle Windsor.
         }
 
-        public override ActionResult Index()
+        public ActionResult Index()
         {
             var model = _fooService.BusinessLogicCall();
             return View(model);

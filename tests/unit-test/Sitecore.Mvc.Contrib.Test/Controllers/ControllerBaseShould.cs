@@ -22,6 +22,17 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
         }
 
         [Test]
+        public void DeriveFromMvcControllerClass()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+            Assert.That(_sut, Is.InstanceOf<System.Web.Mvc.Controller>());
+        }
+
+        [Test]
         public void ReturnItemFromTheItemProperty()
         {
             // Arrange

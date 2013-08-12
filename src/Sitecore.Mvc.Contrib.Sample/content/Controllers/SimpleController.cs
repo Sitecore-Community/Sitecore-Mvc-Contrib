@@ -6,9 +6,9 @@ using Sitecore.Mvc.Controllers;
 
 namespace Website.Controllers
 {
-    public class SimpleController : SitecoreController
+    public class SimpleController : Sitecore.Mvc.Contrib.Controllers.ControllerBase
     {
-        public override ActionResult Index()
+        public ActionResult Index()
         {
             var model = BusinessLogicCall();
             return View(model);
