@@ -13,13 +13,19 @@ templatekey: Sample Item
 field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
 name: __Renderings
 key: __renderings
-content-length: 470
+content-length: 466
 
-<r xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}"><r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{E0D5ECBA-0FF1-4B01-9925-27CCEE8DC403}" /><r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{573BE283-90EF-44FD-B9C6-E1B10C0A6CDB}" /><r id="{197329ED-040F-44A8-B11D-0260EAD85876}" ph="content" uid="{DD39DBAA-8DD6-44C1-A130-CEE3EF7D0142}" /></d></r>
+<r>
+  <d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}">
+    <r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{E0D5ECBA-0FF1-4B01-9925-27CCEE8DC403}" />
+    <r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{573BE283-90EF-44FD-B9C6-E1B10C0A6CDB}" />
+    <r id="{197329ED-040F-44A8-B11D-0260EAD85876}" par="Foo=Bar" ph="content" uid="{DD39DBAA-8DD6-44C1-A130-CEE3EF7D0142}" />
+  </d>
+</r>
 ----version----
 language: en
 version: 1
-revision: 1b1f1a18-1e0b-404c-80bd-f95f9bdaae2d
+revision: 64051ff9-d805-47cb-b9e0-293632cc4860
 
 ----field----
 field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
@@ -32,9 +38,9 @@ ControllerBase Class
 field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
 name: Text
 key: text
-content-length: 686
+content-length: 1201
 
-<p>This class is intended to act as a base class for when defining custom controller renderings. It provides several useful properties that make the support features around setting component properties.&nbsp;</p>
+<p>The Sitecore.Mvc.Contrib.Controllers.ControllerBase&nbsp;class is intended to act as a base class for when defining custom controller renderings. It provides several useful properties that make the support features around setting component properties.&nbsp;</p>
 <h3>Item property</h3>
 <div>
 <p>When a DataSource has been set on a controller the item property will return the item pointed to by the DataSource, otherwise the Item property will return the context Item.</p>
@@ -46,6 +52,15 @@ content-length: 686
 </div>
 <h3>Parameters property</h3>
 <p>Adds a Parameters property which returns a NameValueCollection of the parameters passed to the rendering.</p>
+<p><br />
+</p>
+<h2>Comparison with View Renderings</h2>
+<p>View Renderings are passed a model of type Sitecore.Mvc.Presentation.RenderingModel by default. This type provides the Item and PageItem properties with the same behaviours as provided by the ControllerBase class.</p>
+<p>The&nbsp;Parameters property can be accessed via the @Model.Rendering.Parameters property from a&nbsp;Sitecore.Mvc.Presentation.RenderingModel value.<br />
+<br />
+</p>
+<p><br />
+</p>
 </div>
 ----field----
 field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
@@ -74,14 +89,14 @@ name: __Revision
 key: __revision
 content-length: 36
 
-1b1f1a18-1e0b-404c-80bd-f95f9bdaae2d
+64051ff9-d805-47cb-b9e0-293632cc4860
 ----field----
 field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
 name: __Updated
 key: __updated
 content-length: 34
 
-20130812T170812:635119240923604940
+20130813T114251:635119909710708142
 ----field----
 field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
 name: __Updated by
