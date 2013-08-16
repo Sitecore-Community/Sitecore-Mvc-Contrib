@@ -5,7 +5,7 @@ using System;
 
 namespace Sitecore.Mvc.Contrib.Pipelines.Response.GetRenderer
 {
-    public class ChildAction : GetControllerRenderer
+    public class GetChildActionRenderer : GetControllerRenderer
     {
         protected override Mvc.Presentation.Renderer GetRenderer(Mvc.Presentation.Rendering rendering, GetRendererArgs args)
         {

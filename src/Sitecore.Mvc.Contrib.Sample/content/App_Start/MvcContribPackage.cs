@@ -4,12 +4,12 @@ using System.Web.Routing;
 using Sitecore.Diagnostics;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(
-    typeof(Sitecore.Mvc.Contrib.Sample.App_Start.MvcContribPackage), "PreStart")]
+    typeof(Website.App_Start.MvcContribPackage), "PreStart")]
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(
-    typeof(Sitecore.Mvc.Contrib.Sample.App_Start.MvcContribPackage), "PostStart")]
+    typeof(Website.App_Start.MvcContribPackage), "PostStart")]
 
-namespace Sitecore.Mvc.Contrib.Sample.App_Start
+namespace Website.App_Start
 {
     public static class MvcContribPackage
     {
@@ -47,6 +47,16 @@ namespace Sitecore.Mvc.Contrib.Sample.App_Start
                     partialView = "true",
                     id = UrlParameter.Optional
                 });
+
+
+            routes.MapRoute(
+                "ChildAction", // Route name
+                "CHILDACTION/{controller}/{action}/{id}", // URL with parameters
+                new
+                {
+                    id = UrlParameter.Optional
+                });
+      
         }
     }
 }
