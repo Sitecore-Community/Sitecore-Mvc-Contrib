@@ -7,7 +7,7 @@ using Sitecore.Mvc.Controllers;
 
 namespace Website.Controllers
 {
-    public class HelloWorldController : Sitecore.Mvc.Contrib.Controllers.ControllerBase
+    public class HelloWorldController : Controller
     {
         // Override is necessary as SitecoreController provides an Index action method. Alernatively use the ActionNameAttribute
         public ActionResult Index()
