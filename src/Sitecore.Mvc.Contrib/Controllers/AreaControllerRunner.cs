@@ -18,7 +18,7 @@ namespace Sitecore.Mvc.Contrib.Controllers
             _routeData = routeData;
             _viewContextProvider = viewContextProvider;
             Area = areaRouteData.Area;
-            UseChildActionBehaviour = areaRouteData.UseChildActionBehaviour;
+            UseChildActionBehavior = areaRouteData.UseChildActionBehavior;
         }
 
         public AreaControllerRunner(AreaRouteData areaRouteData) : this(
@@ -31,7 +31,7 @@ namespace Sitecore.Mvc.Contrib.Controllers
         }
 
         public string Area { get; set; }
-        public bool UseChildActionBehaviour { get; set; }
+        public bool UseChildActionBehavior { get; set; }
 
         protected override void ExecuteController(Controller controller)
         {
@@ -47,7 +47,7 @@ namespace Sitecore.Mvc.Contrib.Controllers
                 _routeData.Values["action"] = ActionName;
                 _routeData.DataTokens["area"] = Area;
 
-                if (UseChildActionBehaviour)
+                if (UseChildActionBehavior)
                 {
                     _routeData.DataTokens["ParentActionViewContext"] = _viewContextProvider.GetCurrentViewContext();
                 }
@@ -61,7 +61,7 @@ namespace Sitecore.Mvc.Contrib.Controllers
                 _routeData.Values["action"] = actionValue;
                 _routeData.DataTokens["area"] = areaValue;
 
-                if (UseChildActionBehaviour)
+                if (UseChildActionBehavior)
                 {
                     if (parentActionViewContext == null)
                         _routeData.DataTokens.Remove("ParentActionViewContext");

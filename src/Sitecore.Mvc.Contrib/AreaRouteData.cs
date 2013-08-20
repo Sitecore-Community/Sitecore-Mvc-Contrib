@@ -2,12 +2,12 @@
 {
     public class AreaRouteData
     {
-        public AreaRouteData(string controller, string action, string area, bool useChildActionBehaviour)
+        public AreaRouteData(string controller, string action, string area, bool useChildActionBehavior)
         {
             Controller = controller;
             Action = action;
             Area = area;
-            UseChildActionBehaviour = useChildActionBehaviour;
+            UseChildActionBehavior = useChildActionBehavior;
         }
 
         // By default UseChildActionBehaviour is false
@@ -23,6 +23,6 @@
         public string Controller { get; set; }
         public string Action { get; set; }
         public string Area { get; set; }
-        public bool UseChildActionBehaviour { get; set; }
+        public bool UseChildActionBehavior { get; set; }
     }
 }

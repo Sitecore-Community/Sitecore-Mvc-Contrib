@@ -18,48 +18,131 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
     [TestFixture]
     public class AreaControllerRunnerTests
     {
-        [Test]
-        public void ExecuteController_UseChildActionBehaviourIsTrue_ControllerContextIsChildActionMustBeTrue()
+        RouteData routeData = null;
+        Mock<HttpContextBase> httpContextMock = null;
+        Mock<IPageContext> pageContextMock = null;
+        Mock<IRouteData> routeDataMock = null;
+        Mock<IViewContextProvider> viewContextProviderMock = null;
+        ControllerMock triangulationController = new ControllerMock();
+        AreaRouteData areaData = null;
+
+        public void Setup()
         {
+            areaData = new AreaRouteData()
+            {
+                Controller = "Home",
+                Action = "Index",
+                Area = "Temp",
+                UseChildActionBehavior = true
+            };
+
             var stream = new MemoryStream();
-            var reader = new StreamReader(stream);
-            var areaData = new AreaRouteData() { Controller="Home", Action="Index", Area="", UseChildActionBehaviour=true };
 
-            var routeData = new RouteData();
-            var valuesMock = routeData.Values; //new RouteValueDictionary(); //new Mock<RouteValueDictionary>();
-            var dataTokensMock = routeData.DataTokens; //new RouteValueDictionary();//new Mock<RouteValueDictionary>();
-            var routeDataMock = new Mock<IRouteData>();
+            routeData = new RouteData();
+            routeDataMock = new Mock<IRouteData>();
             routeDataMock.Setup(x => x.Values)
-                .Returns(valuesMock);
+                .Returns(routeData.Values);
             routeDataMock.Setup(x => x.DataTokens)
-                .Returns(dataTokensMock);
+                .Returns(routeData.DataTokens);
 
-            var httpContextMock = HttpContextHelpers.GetMockHttpContext();
+            httpContextMock = HttpContextHelpers.GetMockHttpContext();
             httpContextMock
                 .Setup(x => x.Response)
                 .Returns(new HttpResponseWrapper(new HttpResponse(new StreamWriter(stream))));
             var requestContext = new RequestContext(httpContextMock.Object, routeData);
             ContextService.Get().Push<PageContext>(new PageContext() { RequestContext = requestContext });
 
-            var pageContextMock = new Mock<IPageContext>();
+            pageContextMock = new Mock<IPageContext>();
             pageContextMock
                 .Setup(x => x.RequestContext)
                 .Returns(requestContext);
 
-            var viewContextProviderMock = new Mock<IViewContextProvider>();
-            var runner = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
-
-            // Act
-            runner.TestExecuteController(new HomeController());
-            var content = reader.ReadToEnd();
-
-            // Assert
-            Assert.That(content == true.ToString());
+            viewContextProviderMock = new Mock<IViewContextProvider>();
         }
 
-        public void ExecuteController_ChildActionSettingTrue_ControllerRunnerSetsParentViewContext()
-        {
 
+        [Test]
+        public void ExecuteController_Sets_ParentActionViewContext_When_UseChildActionBehavior_Is_True()
+        {
+            // Arrange
+            Setup();
+            var sut = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
+
+            // Act
+            sut.TestExecuteController(triangulationController);
+
+            // Assert
+            Assert.IsTrue(triangulationController.IsChildAction);
+        }
+
+        [Test]
+        public void ExecuteController_Sets_ParentActionViewContext_When_UseChildActionBehavior_Is_False()
+        {
+            // Arrange
+            Setup();
+            areaData.UseChildActionBehavior = false;
+            var sut = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
+
+            // Act
+            sut.TestExecuteController(triangulationController);
+
+            // Assert
+            Assert.IsFalse(triangulationController.IsChildAction);
+        }
+
+
+        [Test]
+        public void ExecuteController_Removes_ParentActionViewContext_From_DataTokens_Before_Returning_When_ParentActionViewContext_Is_Null()
+        {
+            // Arrange
+            Setup();
+            var sut = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
+
+            // Act
+            sut.TestExecuteController(triangulationController);
+
+            // Assert
+            Assert.IsFalse(routeData.DataTokens.ContainsKey(Constants.Mvc.ParentActionViewContext));
+        }
+
+        [Test]
+        public void ExecuteController_Reinstantes_ParentActionViewContext_In_DataTokens_Before_Returning_When_ParentActionViewContext_Is_Not_Null()
+        {
+            // Arrange
+            Setup();
+            var providedViewContext = new ViewContext();
+            var parentViewContext = new ViewContext();
+            routeData.DataTokens.Add(Constants.Mvc.ParentActionViewContext, parentViewContext);
+            viewContextProviderMock
+                .Setup(p => p.GetCurrentViewContext())
+                .Returns(providedViewContext);
+            var sut = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
+
+            // Act
+            sut.TestExecuteController(triangulationController);
+
+            // Assert
+            Assert.AreSame(routeData.DataTokens[Constants.Mvc.ParentActionViewContext], parentViewContext);
+        }
+
+        [Test]
+        public void ExecuteController_Uses__ViewContext_From_Provider_When_Setting_Up_ParentActionViewContext()
+        {
+            // Arrange
+            Setup();
+            var providedViewContext = new ViewContext();
+            var parentViewContext = new ViewContext();
+            routeData.DataTokens.Add(Constants.Mvc.ParentActionViewContext, parentViewContext);
+            viewContextProviderMock
+                .Setup(p => p.GetCurrentViewContext())
+                .Returns(providedViewContext);
+            var sut = new TestAreaControllerRunner(pageContextMock.Object, routeDataMock.Object, viewContextProviderMock.Object, areaData);
+
+            // Act
+            sut.TestExecuteController(triangulationController);
+
+            // Assert
+            Assert.AreSame(triangulationController.ParentActionViewContext, providedViewContext);
         }
 
         public class TestAreaControllerRunner : AreaControllerRunner
@@ -75,11 +158,15 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
             }
         }
 
-        public class HomeController : Controller
+        public class ControllerMock : Controller
         {
-            public ActionResult Index()
+            public bool IsChildAction { get; set; }
+            public ViewContext ParentActionViewContext { get; set; }
+
+            protected override void Execute(RequestContext requestContext)
             {
-                return new ContentResult() { Content = this.ControllerContext.IsChildAction.ToString() };
+                IsChildAction = requestContext.RouteData.DataTokens.ContainsKey(Constants.Mvc.ParentActionViewContext);
+                ParentActionViewContext = requestContext.RouteData.DataTokens[Constants.Mvc.ParentActionViewContext] as ViewContext;
             }
         }
     }

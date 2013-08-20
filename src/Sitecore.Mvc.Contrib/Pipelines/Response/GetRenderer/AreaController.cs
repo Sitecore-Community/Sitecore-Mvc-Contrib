@@ -5,7 +5,8 @@ using Sitecore.Mvc.Controllers;
 using Sitecore.Mvc.Presentation;
 using Sitecore.Mvc.Pipelines.Response.GetRenderer;
 using Sitecore.Data.Templates;
-
+using Sitecore.Data.Fields;
+                                                                               
 namespace Sitecore.Mvc.Contrib.Pipelines.Response.GetRenderer
 {
     public class AreaController : GetRendererProcessor
@@ -52,7 +53,8 @@ namespace Sitecore.Mvc.Contrib.Pipelines.Response.GetRenderer
             var action = fields[Constants.Fields.Controller.Action].GetValue(true);
             var controller = fields[Constants.Fields.Controller.Name].GetValue(true);
             var area = fields[Constants.Fields.Controller.Area].GetValue(true);
-            return new AreaRouteData(controller, action, area);
+            var useChildActionBehavior = new CheckboxField(fields[Constants.Fields.Controller.UseChildActionBehavior]).Checked;
+            return new AreaRouteData(controller, action, area, useChildActionBehavior);
         }
     }
 }
