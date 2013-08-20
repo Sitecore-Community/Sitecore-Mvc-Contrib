@@ -128,6 +128,7 @@
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller\Data.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller\Data\Area.item" />
+    <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Areas\Area Controller\Data\UseChildActionBehaviour.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout\Renderings.item" />
     <None Include="serialization\master\sitecore\templates\User Defined\MVC Contrib\Layout\Renderings\Controller rendering with validation.item" />

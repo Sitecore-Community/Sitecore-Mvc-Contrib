@@ -4,6 +4,11 @@ namespace Sitecore.Mvc.Contrib
 {
     public class Constants
     {
+        public class Mvc
+        {
+            public static string ParentActionViewContext { get { return "ParentActionViewContext"; } }
+        }
+
         public class Fields
         {
             public class Controller
@@ -13,6 +18,8 @@ namespace Sitecore.Mvc.Contrib
                 public static ID Name { get { return new ID("{E64AD073-DFCC-4D20-8C0B-FE5AA6226CD7}"); } }
 
                 public static ID Area { get { return new ID("{73D7AEB5-49BA-4A4A-A25E-FA20D8391A53}"); } }
+
+                public static ID UseChildActionBehavior { get { return new ID("{7976F4D1-77EC-40EC-AF01-1423E6BE8CF2}"); } }
             }
         }
 

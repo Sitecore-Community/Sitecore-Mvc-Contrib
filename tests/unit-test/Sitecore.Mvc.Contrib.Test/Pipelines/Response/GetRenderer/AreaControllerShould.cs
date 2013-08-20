@@ -80,7 +80,8 @@ namespace Sitecore.Mvc.Contrib.Test.Pipelines.Response.GetRenderer
                 {
                     {Constants.Fields.Controller.Action, "Index"},
                     {Constants.Fields.Controller.Name, "HelloWorld"},
-                    {Constants.Fields.Controller.Area, "MyArea"}
+                    {Constants.Fields.Controller.Area, "MyArea"},
+                    {Constants.Fields.Controller.UseChildActionBehavior, "1"}
                 };
             var innerItem = new TestItem(fieldList);
 
