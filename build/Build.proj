@@ -66,7 +66,7 @@
 
   <Target Name="Build" DependsOnTargets="Init">
     <MSBuild Projects="$(ProjectRoot)\Sitecore.Mvc.Contrib.sln"
-             Targets="Build"
+             Targets="ReBuild"
              Properties="Configuration=$(Configuration);OutDir=$(BuildResultsPath)\" />
   </Target>
   

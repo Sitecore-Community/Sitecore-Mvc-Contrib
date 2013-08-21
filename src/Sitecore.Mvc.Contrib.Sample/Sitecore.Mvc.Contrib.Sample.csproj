@@ -44,10 +44,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="SitecoreAbstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Sitecore.Abstractions\bin\Debug\SitecoreAbstractions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -131,6 +127,10 @@
     <None Include="tools\uninstall.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sitecore.Abstractions\Sitecore.Abstractions.csproj">
+      <Project>{8da484d1-06d3-4749-8275-c9b3346c2584}</Project>
+      <Name>Sitecore.Abstractions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sitecore.Mvc.Contrib\Sitecore.Mvc.Contrib.csproj">
       <Project>{5791fcd4-6691-4ea6-8e02-000af1e707a4}</Project>
       <Name>Sitecore.Mvc.Contrib</Name>
