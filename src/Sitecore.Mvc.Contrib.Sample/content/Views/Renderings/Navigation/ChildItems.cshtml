@@ -1,11 +1,15 @@
 ﻿@model RenderingModel
+@using Sitecore.Links
 @using Sitecore.Mvc.Presentation
 
 
 <ul class="nav nav-list">
     @foreach (var childItem in Model.Item.Children.ToArray())
     {
-        var link = Sitecore.Links.LinkManager.GetItemUrl(childItem);
+        var options = (UrlOptions) UrlOptions.DefaultOptions.Clone();
+        options.AddAspxExtension = false;
+        
+        var link = LinkManager.GetItemUrl(childItem, options);
         
         <li><a href="@link">@childItem.Name</a></li>
     }
