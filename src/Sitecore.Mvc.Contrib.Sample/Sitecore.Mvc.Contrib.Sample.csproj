@@ -100,6 +100,7 @@
     <None Include="serialization\master\sitecore\content\Home\Sample\Controller Rendering.item" />
     <None Include="serialization\master\sitecore\content\Home\Sample\ControllerBase.item" />
     <None Include="serialization\master\sitecore\content\Home\Sample\Dependency Injection.item" />
+    <None Include="serialization\master\sitecore\content\Home\Sample\Sitecore Helper Methods.item" />
     <None Include="serialization\master\sitecore\content\Mvc Sample.item" />
     <None Include="serialization\master\sitecore\layout\Layouts\MainView Layout.item" />
     <None Include="serialization\master\sitecore\layout\Renderings\MVC Contrib.item" />

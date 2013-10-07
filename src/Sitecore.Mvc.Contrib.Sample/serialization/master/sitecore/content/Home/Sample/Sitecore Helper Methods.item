@@ -1,0 +1,87 @@
+----item----
+version: 1
+id: {CC6DB7AD-9805-4486-AAA6-4F385C006523}
+database: master
+path: /sitecore/content/Home/Sample/Sitecore Helper Methods
+parent: {B97C1116-4B23-4868-BB9B-5C880866CBE5}
+name: Sitecore Helper Methods
+master: {00000000-0000-0000-0000-000000000000}
+template: {62D738B9-774F-4AD7-B99B-122796F0C6C5}
+templatekey: Sample Item
+
+----field----
+field: {F1A1FE9E-A60C-4DDB-A3A0-BB5B29FE732E}
+name: __Renderings
+key: __renderings
+content-length: 470
+
+<r xmlns:xsd="http://www.w3.org/2001/XMLSchema" ><d id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}" l="{414EF0E6-49D4-4B0A-9DD4-B093DB58F572}"><r id="{B088B259-01FC-4BBB-A972-CD1FD50D5DF3}" ph="main" uid="{E0D5ECBA-0FF1-4B01-9925-27CCEE8DC403}" /><r id="{36A9E0D5-3793-4377-BF5D-21CC8021FA08}" ph="centercolumn" uid="{573BE283-90EF-44FD-B9C6-E1B10C0A6CDB}" /><r id="{197329ED-040F-44A8-B11D-0260EAD85876}" ph="content" uid="{39F0981D-7560-4C74-81A9-4FD107E0AA11}" /></d></r>
+----version----
+language: en
+version: 1
+revision: f125487b-0c1f-41e8-9011-fc0c2379adbc
+
+----field----
+field: {F60DB42F-4FE5-448D-BAD8-EFD051297522}
+name: Title
+key: title
+content-length: 22
+
+SitecoreHelper Methods
+----field----
+field: {076ADCA0-FF34-4CED-A30B-B8C195CDCFCA}
+name: Text
+key: text
+content-length: 500
+
+<h3>Field Helpers</h3>
+<h4>LinkField</h4>
+<p>Used to output a general link field with a specified label value rather than take the general link's Description attribute value.</p>
+<p>Syntax:</p>
+<pre>@Html.Sitecore().LinkField(string fieldName, string text, bool disableWebEdit = false)</pre>
+<p>Code Example:</p>
+<pre>@Html.Sitecore().LinkField("MyLink", "Label to Use")</pre>
+<p>This will output the following HTML</p>
+<pre>&lt;a href="url referenced by MyLink field"&gt;Label to Use&lt;/a&gt;</pre>
+----field----
+field: {52807595-0F8F-4B20-8D2A-CB71D28C6103}
+name: __Owner
+key: __owner
+content-length: 14
+
+sitecore\admin
+----field----
+field: {25BED78C-4957-4165-998A-CA1B52F67497}
+name: __Created
+key: __created
+content-length: 15
+
+20131007T073918
+----field----
+field: {5DD74568-4D4B-44C1-B513-0AF5F4CDA34F}
+name: __Created by
+key: __created by
+content-length: 14
+
+sitecore\admin
+----field----
+field: {8CDC337E-A112-42FB-BBB4-4143751E123F}
+name: __Revision
+key: __revision
+content-length: 36
+
+f125487b-0c1f-41e8-9011-fc0c2379adbc
+----field----
+field: {D9CF14B1-FA16-4BA6-9288-E8A174D4D522}
+name: __Updated
+key: __updated
+content-length: 34
+
+20131007T075935:635167295754436949
+----field----
+field: {BADD9CF9-53E0-4D0C-BCC0-2D784C282F6A}
+name: __Updated by
+key: __updated by
+content-length: 14
+
+sitecore\admin

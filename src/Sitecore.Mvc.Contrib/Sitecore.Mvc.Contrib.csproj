@@ -91,6 +91,9 @@
     <Compile Include="Data\Validators\TestableStandardValidator.cs" />
     <Compile Include="Data\Validators\ControllerValidator.cs" />
     <Compile Include="Data\Validators\IControllerValidator.cs" />
+    <Compile Include="Helpers\SitecoreFieldHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Presentation\IRenderingItemProvider.cs" />
     <Compile Include="Presentation\IRenderingProvider.cs" />
     <Compile Include="Presentation\PresentationRenderingProvider.cs" />
