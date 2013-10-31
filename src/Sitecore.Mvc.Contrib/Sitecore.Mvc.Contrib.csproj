@@ -94,6 +94,9 @@
     <Compile Include="Helpers\SitecoreFieldHelper.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Helpers\SitecoreRendingHelper.cs" />
+    <Compile Include="Pipelines\Response\RenderRendering\CachedRenderingArgs.cs" />
+    <Compile Include="Pipelines\Response\RenderRendering\GenerateCustomCacheKey.cs" />
     <Compile Include="Presentation\IRenderingItemProvider.cs" />
     <Compile Include="Presentation\IRenderingProvider.cs" />
     <Compile Include="Presentation\PresentationRenderingProvider.cs" />
