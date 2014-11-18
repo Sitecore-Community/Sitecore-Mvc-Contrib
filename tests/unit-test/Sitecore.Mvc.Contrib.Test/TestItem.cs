@@ -13,7 +13,10 @@ namespace Sitecore.Mvc.Contrib.Test
         public TestItem(FieldList fieldList, string itemName = "dummy")
             : base(new ID(new Guid()), 
                    new ItemData(new ItemDefinition(new ID(new Guid()), itemName, new ID(new Guid()), new ID(new Guid())), Language.Invariant, new Sitecore.Data.Version(1), fieldList), 
-                   new Database("web"))
+            //       new Database("web"))
+            // commented out as Sitecore 7.5 does not support 
+                    null)
+
         {
         }
 
