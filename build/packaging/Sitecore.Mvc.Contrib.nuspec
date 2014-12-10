@@ -18,7 +18,7 @@
     <tags>Sitecore CMS MVC Contrib</tags>
     <language>en-GB</language>
     <dependencies>
-      <dependency id="Microsoft.AspNet.Mvc" version="3.0.20105.1" />
+      <dependency id="Microsoft.AspNet.Mvc" version="5.1.1" />
     </dependencies>
   </metadata>
   <files>
