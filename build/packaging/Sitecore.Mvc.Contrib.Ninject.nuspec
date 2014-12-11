@@ -15,7 +15,7 @@
         <tags>Sitecore CMS MVC Contrib Ninject IOC</tags>
         <language>en-GB</language>
         <dependencies>
-            <dependency id="Microsoft.AspNet.Mvc" version="5.1.1" />
+            <dependency id="Sitecore.Mvc.Contrib" version="0.1.2" />
             <dependency id="WebActivatorEx" version="2.0.1" />
             <dependency id="Ninject" version="3.0.1.10" />
         </dependencies>
@@ -23,6 +23,8 @@
     <files>
         <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.dll" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContribNinject.pdb" target="lib\net45" />
+        <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net45" />
+        <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net45" />
 

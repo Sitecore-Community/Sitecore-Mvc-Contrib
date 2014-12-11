@@ -15,17 +15,12 @@
         <tags>Sitecore CMS MVC Contrib</tags>
         <language>en-GB</language>
         <dependencies>
-            <dependency id="Microsoft.AspNet.Mvc" version="5.1.1" />
             <dependency id="Sitecore.Mvc.Contrib" version="0.1.2" />
             <dependency id="Sitecore.Mvc.Contrib.Autofac" version="0.1.3" />
             <dependency id="WebActivatorEx" version="2.0.1" />
         </dependencies>
     </metadata>
     <files>
-        <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net45" />
-        <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net45" />
-        <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net45" />
-        <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.Sample.dll" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.Sample.pdb" target="lib\net45" />
 

@@ -23,6 +23,8 @@
     <files>
         <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.dll" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContribStructureMap.pdb" target="lib\net45" />
+        <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net45" />
+        <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net45" />
         <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net45" />
 
