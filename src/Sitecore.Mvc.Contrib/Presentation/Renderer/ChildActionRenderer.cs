@@ -6,7 +6,7 @@ using System.Web.Mvc.Html;
 
 namespace Sitecore.Mvc.Contrib.Presentation.Renderer
 {
-    public class ChildActionRenderer : Mvc.Presentation.ControllerRenderer
+    public class ChildActionRenderer : ControllerRenderer
     {
         private readonly IPageContext _pageContext;
         private readonly HtmlHelper _helper;
@@ -24,8 +24,9 @@ namespace Sitecore.Mvc.Contrib.Presentation.Renderer
  
         public override void Render(System.IO.TextWriter writer)
         {
-            string controllerName = this.ControllerName;
-            string actionName = this.ActionName;
+            var controllerName = ControllerName;
+            var actionName = ActionName;
+            
             if (!controllerName.IsWhiteSpaceOrNull() && !actionName.IsWhiteSpaceOrNull())
             {
                 var value = RunChildAction(actionName, controllerName);
@@ -49,7 +50,7 @@ namespace Sitecore.Mvc.Contrib.Presentation.Renderer
  
         protected static HtmlHelper GetHtmlHelper()
         {
-            ViewContext current = ContextService.Get().GetCurrent<ViewContext>();
+            var current = ContextService.Get().GetCurrent<ViewContext>();
             return new HtmlHelper(current, new ViewDataContainer(current.ViewData));
         }
     }

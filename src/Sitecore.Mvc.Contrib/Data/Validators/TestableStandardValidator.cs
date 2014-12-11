@@ -13,13 +13,13 @@ namespace Sitecore.Mvc.Contrib.Data.Validators
 
         protected TestableStandardValidator()
         {
-            GetText = (v) => base.GetText(v);
+            GetText = v => base.GetText(v);
         }
 
         protected TestableStandardValidator(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            GetText = (v) => base.GetText(v);
+            GetText = v => base.GetText(v);
         }
 
         public new Func<string, string> GetText;

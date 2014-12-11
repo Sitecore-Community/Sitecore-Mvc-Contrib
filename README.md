@@ -2,20 +2,20 @@
 
 # Sitecore.Mvc.Contrib
 
-This project extends the base MVC functionality introduced in Sitecore 6.6, providing a set of common classes and helpers that you may need while using Sitecore MVC.
+This project extends the base Sitecore MVC functionality, providing a set of common classes and helpers that you may need while using the Model-View-Controller paradigm with Sitecore.
 
 
 ## Requirements
 
-* .NET Framework 4
+* .NET Framework 4.5
 
-* Visual Studio 2010 with NuGet Package Manager extension installed. 
+* Visual Studio 2012 with NuGet Package Manager extension installed. 
 
     Ensure that the Package Restore checkbox has been ticked in the NuGet Package Manager Options dialog.
 
-* MVC 3 
+* MVC 5
 
-* Sitecore v6.6 or above. MVC also need to be configured (see docs or SDN for more info).
+* Sitecore 7.5 or later.
 
 
 ## Building
@@ -42,13 +42,9 @@ Options for installation are:
     
 ### Detailed instructions for using the NuGet packages
 
-* Ensure that the Sitecore website has been configured correctly for MVC operation
+* Ensure that the Sitecore website has been configured correctly for MVC operation. Your CSPROJ file should be set to target .NET framework 4.5.
 
 * Connect website project to Sitecore.Rocks connection for your website
-
-    Note: Currently Sitecore.Nuget fails to find connections located within the <Local IIS Sites> folder. Ensure that your site exists as a direct child of Connections in the Sitecore Explorer.
-
-* Configure a Package source in Visual Studio to point to http://54.247.113.114:8080/nuget
 
 * From the Package Manager Console in Visual Studio execute one of the following commands:
 
@@ -85,7 +81,7 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/Si
 
 ## Contributions
 
-Please ensure that any assemblies added to the solution are compatible with Visual Studio 2010.
+Please ensure that any assemblies added to the solution are compatible with Visual Studio 2012.
 
 ## Authors and credits
 
@@ -96,14 +92,14 @@ Project maintained by:
 
 Contributors:
 
-* Kevin Buckley
-* Mike Edwards
-* Stephen Pope
+* [Kevin Buckley](https://twitter.com/KevinPBuckley)
+* [Mike Edwards](https://twitter.com/mikeedwards83)
+* [Stephen Pope](https://twitter.com/stephenpope)
 
 
 ## Copyright and license
 
-Copyright 2013 Sitecore Corporation A/S
+Copyright 2014 Sitecore Corporation A/S
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with 
 the License. You may obtain a copy of the License at

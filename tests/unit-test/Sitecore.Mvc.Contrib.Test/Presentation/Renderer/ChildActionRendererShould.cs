@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 
 using Sitecore.Mvc.Contrib.Presentation.Renderer;
 using System.Web.Mvc;
-using System.Web.Mvc.Html;
 using Sitecore.Mvc.Presentation;
 using System.IO;
 using System.Web;
@@ -67,7 +61,7 @@ namespace Sitecore.Mvc.Contrib.Test.Presentation.Renderer
             htmlHelper = new Mock<HtmlHelper>(viewContext, viewDataContainer.Object, routes);
 
             var requestContext = new RequestContext(httpContext.Object, originalRouteData);
-            ContextService.Get().Push<PageContext>(new PageContext() { RequestContext = requestContext });
+            ContextService.Get().Push(new PageContext { RequestContext = requestContext });
 
             pageContext = new Mock<IPageContext>();
             pageContext

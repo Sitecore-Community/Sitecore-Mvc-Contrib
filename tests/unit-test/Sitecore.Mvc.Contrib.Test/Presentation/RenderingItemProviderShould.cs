@@ -1,5 +1,4 @@
-﻿using System;
-using Moq;
+﻿using Moq;
 using NUnit.Framework;
 
 using Sitecore.Data;
@@ -9,7 +8,7 @@ using Sitecore.Mvc.Presentation;
 namespace Sitecore.Mvc.Contrib.Test.Presentation
 {
     [TestFixture]
-    class RenderingItemProviderShould
+    public class RenderingItemProviderShould
     {
         private RenderingItemProvider _sut;
         private Mock<IRenderingProvider> _renderingProvider;

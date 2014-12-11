@@ -1,6 +1,5 @@
 ﻿using Sitecore.Mvc.Controllers;
 using System.Web.Mvc;
-using System.Web.Routing;
 using Sitecore.Mvc.Presentation;
 
 namespace Sitecore.Mvc.Contrib.Controllers
@@ -35,7 +34,6 @@ namespace Sitecore.Mvc.Contrib.Controllers
 
         protected override void ExecuteController(Controller controller)
         {
-            RequestContext requestContext = _pageContext.RequestContext;
             object controllerValue = _routeData.Values["controller"];
             object actionValue = _routeData.Values["action"];
             object areaValue = _routeData.DataTokens["area"];

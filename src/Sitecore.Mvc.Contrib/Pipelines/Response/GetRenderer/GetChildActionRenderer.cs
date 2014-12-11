@@ -9,7 +9,7 @@ namespace Sitecore.Mvc.Contrib.Pipelines.Response.GetRenderer
     {
         protected override Mvc.Presentation.Renderer GetRenderer(Mvc.Presentation.Rendering rendering, GetRendererArgs args)
         {
-            Tuple<string, string> controllerAndAction = this.GetControllerAndAction(rendering, args);
+            Tuple<string, string> controllerAndAction = GetControllerAndAction(rendering, args);
             if (!IsChildActionRendering(args.RenderingTemplate) || controllerAndAction == null)
             {
                 return null;

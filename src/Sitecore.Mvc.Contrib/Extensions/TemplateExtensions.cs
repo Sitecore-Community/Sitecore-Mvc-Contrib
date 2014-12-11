@@ -13,23 +13,20 @@ namespace Sitecore.Mvc.Contrib.Extensions
                 return true;
             }
 
-            if ((template.BaseTemplates == null) || (template.BaseTemplates.Count() == 0))
+            if ((template.BaseTemplates == null) || (!template.BaseTemplates.Any()))
             {
                 return false;
             }
-            else
+            
+            foreach (var baseTemplate in template.BaseTemplates)
             {
-                foreach (var baseTemplate in template.BaseTemplates)
+                if (baseTemplate.IsAncestorOrSelf(templateId))
                 {
-                    if (baseTemplate.IsAncestorOrSelf(templateId))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-
-                return false;
             }
 
+            return false;
         }       
     }
 }

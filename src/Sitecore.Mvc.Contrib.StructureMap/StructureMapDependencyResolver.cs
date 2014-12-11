@@ -20,10 +20,8 @@ namespace Sitecore.Mvc.Contrib.StructureMap
             {
                 return _container.TryGetInstance(serviceType);
             }
-            else
-            {
-                return _container.GetInstance(serviceType);
-            }
+            
+            return _container.GetInstance(serviceType);
         }
 
         public IEnumerable<object> GetServices(Type serviceType)

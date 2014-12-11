@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using Sitecore.Mvc.Contrib.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Moq;
 using Sitecore.Mvc.Presentation;
 using System.Web.Routing;
@@ -18,17 +14,17 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
     [TestFixture]
     public class AreaControllerRunnerTests
     {
-        RouteData routeData = null;
-        Mock<HttpContextBase> httpContextMock = null;
-        Mock<IPageContext> pageContextMock = null;
-        Mock<IRouteData> routeDataMock = null;
-        Mock<IViewContextProvider> viewContextProviderMock = null;
-        ControllerMock triangulationController = new ControllerMock();
-        AreaRouteData areaData = null;
+        RouteData routeData;
+        Mock<HttpContextBase> httpContextMock;
+        Mock<IPageContext> pageContextMock;
+        Mock<IRouteData> routeDataMock;
+        Mock<IViewContextProvider> viewContextProviderMock;
+        readonly ControllerMock triangulationController = new ControllerMock();
+        AreaRouteData areaData;
 
         public void Setup()
         {
-            areaData = new AreaRouteData()
+            areaData = new AreaRouteData
             {
                 Controller = "Home",
                 Action = "Index",
@@ -50,7 +46,7 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
                 .Setup(x => x.Response)
                 .Returns(new HttpResponseWrapper(new HttpResponse(new StreamWriter(stream))));
             var requestContext = new RequestContext(httpContextMock.Object, routeData);
-            ContextService.Get().Push<PageContext>(new PageContext() { RequestContext = requestContext });
+            ContextService.Get().Push(new PageContext { RequestContext = requestContext });
 
             pageContextMock = new Mock<IPageContext>();
             pageContextMock
@@ -59,7 +55,6 @@ namespace Sitecore.Mvc.Contrib.Test.Controllers
 
             viewContextProviderMock = new Mock<IViewContextProvider>();
         }
-
 
         [Test]
         public void ExecuteController_Sets_ParentActionViewContext_When_UseChildActionBehavior_Is_True()
