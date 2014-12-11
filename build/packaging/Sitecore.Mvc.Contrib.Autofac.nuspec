@@ -11,19 +11,20 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>This project contains IoC frameworking classes to setup Autofac to work with the Sitecore MVC Contrib assemblies.</description>
     <releaseNotes>This is a pre-release version of the package. Removed dependency on Sitecore.Mvc.Contrib package.</releaseNotes>
-    <copyright>Copyright 2013 Sitecore Corporation A/S</copyright>
+    <copyright>Copyright 2014 Sitecore Corporation A/S</copyright>
     <tags>Sitecore CMS MVC Contrib Autofac IOC</tags>
     <language>en-GB</language>
     <dependencies>
       <dependency id="WebActivatorEx" version="2.0.1" />
-      <dependency id="Autofac.Mvc3" version="2.6.3.862" />
+        <dependency id="Autofac" version="3.4.0" />
+        <dependency id="Autofac.Mvc5" version="3.3.3" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Build\SitecoreMvcContribAutofac.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContribAutofac.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContribAutofac.dll" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContribAutofac.pdb" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net45" />
     
     <file src="..\..\src\Sitecore.Mvc.Contrib.Autofac\content\**\*" target="content" />    
   </files>

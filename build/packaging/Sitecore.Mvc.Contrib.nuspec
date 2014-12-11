@@ -14,7 +14,7 @@
 * 1.0.0 Initial release of package
 * 1.0.1 Bug fixes for injector filter
     </releaseNotes>
-    <copyright>Copyright 2013 Sitecore Corporation A/S</copyright>
+    <copyright>Copyright 2014 Sitecore Corporation A/S</copyright>
     <tags>Sitecore CMS MVC Contrib</tags>
     <language>en-GB</language>
     <dependencies>
@@ -22,10 +22,10 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net40" />
-    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net40" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.dll" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreAbstractions.pdb" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.dll" target="lib\net45" />
+    <file src="..\..\artifacts\Build\SitecoreMvcContrib.pdb" target="lib\net45" />
   
     <file src="..\..\src\Sitecore.Mvc.Contrib\serialization\**\*" target="serialization" />
     <file src="..\..\src\Sitecore.Mvc.Contrib\tools\**\*" target="tools" />
