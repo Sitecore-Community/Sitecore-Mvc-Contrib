@@ -57,7 +57,12 @@ namespace Sitecore.Mvc.Contrib.Controllers
             {
                 _routeData.Values["controller"] = controllerValue;
                 _routeData.Values["action"] = actionValue;
-                _routeData.DataTokens["area"] = areaValue;
+
+                // Remove area data token if not available previously to resolve null exception from App Center's TagInjectionControllerFactory's CanHandle method.
+                if (areaValue == null)
+                    _routeData.DataTokens.Remove("area");
+                else
+                    _routeData.DataTokens["area"] = areaValue;
 
                 if (UseChildActionBehavior)
                 {
